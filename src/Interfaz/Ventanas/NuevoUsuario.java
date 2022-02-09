@@ -4,6 +4,10 @@
  */
 package Interfaz.Ventanas;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
+
 /**
  *
  * @author Mainque
@@ -16,6 +20,11 @@ public class NuevoUsuario extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Interfaz/Imagenes/icono v1.png"));
+        return retValue;
+    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,6 +52,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -52,6 +62,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
         jButtonExit.setText("Salir");
         jButtonExit.setBorder(null);
         jButtonExit.setBorderPainted(false);
+        jButtonExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonExitActionPerformed(evt);
@@ -60,17 +71,17 @@ public class NuevoUsuario extends javax.swing.JFrame {
         getContentPane().add(jButtonExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 60, 20));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel1.setForeground(new java.awt.Color(0, 211, 153));
         jLabel1.setText("Contraseña");
         jLabel1.setToolTipText("");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel2.setForeground(new java.awt.Color(0, 211, 153));
         jLabel2.setText("DNI");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
 
-        jTextFieldDNI.setBackground(new java.awt.Color(0, 153, 153));
+        jTextFieldDNI.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldDNI.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldDNI.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldDNI.addActionListener(new java.awt.event.ActionListener() {
@@ -80,12 +91,12 @@ public class NuevoUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(jTextFieldDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 330, -1));
 
-        jPassword.setBackground(new java.awt.Color(0, 153, 153));
+        jPassword.setBackground(new java.awt.Color(0, 217, 153));
         jPassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jPassword.setForeground(new java.awt.Color(0, 0, 0));
         getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 330, -1));
 
-        jTextFieldNombre.setBackground(new java.awt.Color(0, 153, 153));
+        jTextFieldNombre.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldNombre.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldNombre.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -96,11 +107,11 @@ public class NuevoUsuario extends javax.swing.JFrame {
         getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 330, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel3.setForeground(new java.awt.Color(0, 211, 153));
         jLabel3.setText("Nombre");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, -1, -1));
 
-        jTextFieldEmail.setBackground(new java.awt.Color(0, 153, 153));
+        jTextFieldEmail.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldEmail.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldEmail.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -111,11 +122,11 @@ public class NuevoUsuario extends javax.swing.JFrame {
         getContentPane().add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 330, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel4.setForeground(new java.awt.Color(0, 211, 153));
         jLabel4.setText("Email");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, -1, -1));
 
-        jTextFieldTelefono.setBackground(new java.awt.Color(0, 153, 153));
+        jTextFieldTelefono.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldTelefono.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldTelefono.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldTelefono.addActionListener(new java.awt.event.ActionListener() {
@@ -126,29 +137,30 @@ public class NuevoUsuario extends javax.swing.JFrame {
         getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 330, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel5.setForeground(new java.awt.Color(0, 211, 153));
         jLabel5.setText("  Localidad");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel6.setForeground(new java.awt.Color(0, 211, 153));
         jLabel6.setText(" Teléfono");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, -1));
 
-        jComboBoxLocalidad.setBackground(new java.awt.Color(0, 153, 153));
+        jComboBoxLocalidad.setBackground(new java.awt.Color(0, 217, 153));
         jComboBoxLocalidad.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jComboBoxLocalidad.setForeground(new java.awt.Color(0, 0, 0));
         jComboBoxLocalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tandil", "Olavarría", "Balcarce", "Mar Del Plata" }));
-        jComboBoxLocalidad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jComboBoxLocalidad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jComboBoxLocalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 270, -1));
         jComboBoxLocalidad.getAccessibleContext().setAccessibleName("");
 
-        jButtonCrearUsuario.setBackground(new java.awt.Color(0, 153, 153));
+        jButtonCrearUsuario.setBackground(new java.awt.Color(0, 217, 153));
         jButtonCrearUsuario.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jButtonCrearUsuario.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCrearUsuario.setText("Crear usuario");
         jButtonCrearUsuario.setBorder(null);
         jButtonCrearUsuario.setBorderPainted(false);
+        jButtonCrearUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonCrearUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCrearUsuarioActionPerformed(evt);
@@ -156,12 +168,13 @@ public class NuevoUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonCrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 140, 30));
 
-        jButtonAtras.setBackground(new java.awt.Color(0, 153, 153));
+        jButtonAtras.setBackground(new java.awt.Color(0, 217, 153));
         jButtonAtras.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButtonAtras.setForeground(new java.awt.Color(0, 0, 0));
         jButtonAtras.setText("Atras");
         jButtonAtras.setBorder(null);
         jButtonAtras.setBorderPainted(false);
+        jButtonAtras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAtrasActionPerformed(evt);

@@ -4,6 +4,9 @@
  */
 package Interfaz.Ventanas;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Mainque
@@ -17,6 +20,11 @@ public class Login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Interfaz/Imagenes/icono v1.png"));
+        return retValue;
+    }
+    
     public static int getDniUsuario() {
         return dniUsuario;
     }
@@ -31,6 +39,7 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jButtonExit = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jButtonCrearUsuario = new javax.swing.JButton();
         jButtonIngresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -40,6 +49,7 @@ public class Login extends javax.swing.JFrame {
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -49,6 +59,7 @@ public class Login extends javax.swing.JFrame {
         jButtonExit.setText("Salir");
         jButtonExit.setBorder(null);
         jButtonExit.setBorderPainted(false);
+        jButtonExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonExitActionPerformed(evt);
@@ -56,12 +67,16 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 60, 20));
 
-        jButtonCrearUsuario.setBackground(new java.awt.Color(0, 153, 153));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/img_login.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, -1));
+
+        jButtonCrearUsuario.setBackground(new java.awt.Color(0, 211, 153));
         jButtonCrearUsuario.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jButtonCrearUsuario.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCrearUsuario.setText("Crear usuario");
         jButtonCrearUsuario.setBorder(null);
         jButtonCrearUsuario.setBorderPainted(false);
+        jButtonCrearUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonCrearUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCrearUsuarioActionPerformed(evt);
@@ -69,12 +84,13 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonCrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 140, 30));
 
-        jButtonIngresar.setBackground(new java.awt.Color(0, 153, 153));
+        jButtonIngresar.setBackground(new java.awt.Color(0, 211, 153));
         jButtonIngresar.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jButtonIngresar.setForeground(new java.awt.Color(0, 0, 0));
         jButtonIngresar.setText("Ingresar");
         jButtonIngresar.setBorder(null);
         jButtonIngresar.setBorderPainted(false);
+        jButtonIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIngresarActionPerformed(evt);
@@ -83,17 +99,17 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jButtonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 450, 120, 30));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel1.setForeground(new java.awt.Color(0, 211, 153));
         jLabel1.setText("Contraseña");
         jLabel1.setToolTipText("");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel2.setForeground(new java.awt.Color(0, 211, 153));
         jLabel2.setText("Usuario");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, -1));
 
-        jTextFieldUsuario.setBackground(new java.awt.Color(0, 153, 153));
+        jTextFieldUsuario.setBackground(new java.awt.Color(0, 211, 153));
         jTextFieldUsuario.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldUsuario.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +119,7 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 330, -1));
 
-        jPassword.setBackground(new java.awt.Color(0, 153, 153));
+        jPassword.setBackground(new java.awt.Color(0, 211, 153));
         jPassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jPassword.setForeground(new java.awt.Color(0, 0, 0));
         getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 330, -1));
@@ -129,6 +145,9 @@ public class Login extends javax.swing.JFrame {
         //Si concuerda entonces pasa al siguiente menu.
         if(true){
             this.dniUsuario = dni;
+            Menu menu = new Menu();
+            menu.setVisible(true);
+            this.setVisible(false);
             //activar el menu
         }else{
             //activar error
@@ -185,6 +204,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton jButtonIngresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JPasswordField jPassword;
     private javax.swing.JTextField jTextFieldUsuario;
