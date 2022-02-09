@@ -86,11 +86,7 @@ public class Publicacion {
         return depto;
     }
 
-    public boolean isEsAmueblado() {
-        return esAmueblado;
-    }
-
-    public boolean isTienePatio() {
+    public boolean tienePatio() {
         return tienePatio;
     }
 
