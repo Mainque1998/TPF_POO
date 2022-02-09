@@ -16,6 +16,6 @@ public class FiltroDuenio implements Filtro {
     
     @Override
     public boolean cumple(Publicacion p) {
-        return (p.getDueño().equals(dueño));
+        return (p.getDueño().getNombre().equals(dueño));
     }
 }
