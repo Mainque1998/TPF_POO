@@ -4,8 +4,10 @@
  */
 package Interfaz.Ventanas;
 
+import Sistema_Base.Publicaciones;
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -58,8 +60,8 @@ public class NuevaPublicacion extends javax.swing.JFrame {
         jCheckBoxPatio = new javax.swing.JCheckBox();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButtonCrearUsuario = new javax.swing.JButton();
+        jTextAreaDescripcion = new javax.swing.JTextArea();
+        jButtonCrear = new javax.swing.JButton();
         jButtonAtras = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
@@ -97,7 +99,7 @@ public class NuevaPublicacion extends javax.swing.JFrame {
                 jComboBoxTipoActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBoxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 200, -1));
+        getContentPane().add(jComboBoxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 180, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 211, 153));
@@ -266,29 +268,29 @@ public class NuevaPublicacion extends javax.swing.JFrame {
         jLabel2.setText("Descripción");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
 
-        jTextArea1.setBackground(new java.awt.Color(0, 211, 153));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextAreaDescripcion.setBackground(new java.awt.Color(0, 211, 153));
+        jTextAreaDescripcion.setColumns(20);
+        jTextAreaDescripcion.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jTextAreaDescripcion.setForeground(new java.awt.Color(0, 0, 0));
+        jTextAreaDescripcion.setLineWrap(true);
+        jTextAreaDescripcion.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaDescripcion);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 400, 110));
 
-        jButtonCrearUsuario.setBackground(new java.awt.Color(0, 217, 153));
-        jButtonCrearUsuario.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jButtonCrearUsuario.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonCrearUsuario.setText("Crear publicación");
-        jButtonCrearUsuario.setBorder(null);
-        jButtonCrearUsuario.setBorderPainted(false);
-        jButtonCrearUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonCrearUsuario.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCrear.setBackground(new java.awt.Color(0, 217, 153));
+        jButtonCrear.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jButtonCrear.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonCrear.setText("Crear publicación");
+        jButtonCrear.setBorder(null);
+        jButtonCrear.setBorderPainted(false);
+        jButtonCrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCrearUsuarioActionPerformed(evt);
+                jButtonCrearActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 180, 30));
+        getContentPane().add(jButtonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 180, 30));
 
         jButtonAtras.setBackground(new java.awt.Color(0, 217, 153));
         jButtonAtras.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -315,10 +317,21 @@ public class NuevaPublicacion extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButtonExitActionPerformed
 
-    private void jButtonCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearUsuarioActionPerformed
-        //Verificar que no exista una publicacion con la misma calle depto piso
-        //Si no existe entonces se guarda en la BD y vuelve al menu inicial
-    }//GEN-LAST:event_jButtonCrearUsuarioActionPerformed
+    private void jButtonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearActionPerformed
+        //TODO Verificar que las cajas esten rellenedas correctamente, utilizar joptionpane para los errores
+       
+        boolean seAgrego = Publicaciones.agregar(0, jComboBoxTipo.getSelectedItem().toString(), jComboBoxZona.getSelectedItem().toString(), jTextFieldCalle.getText(), Integer.valueOf(jTextFieldPiso.getText()), Integer.valueOf(jTextFieldDepto.getText()), Login.getDniUsuario(), jComboBoxPago.getSelectedItem().toString(), Integer.valueOf(jTextFieldPrecio.getText()), Integer.valueOf(jTextFieldHabitaciones.getText()), Integer.valueOf(jTextFieldMetrosCuadrados.getText()), jCheckBoxAmueblado.isSelected(), jCheckBoxPatio.isSelected(), jTextAreaDescripcion.getText());
+        
+        if(seAgrego){//Verificar que no exista una publicacion con la misma calle depto piso
+            //Si no existe entonces se guarda en la BD y vuelve al menu inicial
+            JOptionPane.showMessageDialog(null, "La publicación se creó exitosamente.");
+            Menu anterior = new Menu();
+            anterior.setVisible(true);
+            this.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(null, "Ya existe una publicación con la misma calle, piso y depto.");
+        }
+    }//GEN-LAST:event_jButtonCrearActionPerformed
 
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
         Menu anterior = new Menu();
@@ -418,7 +431,7 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAtras;
-    private javax.swing.JButton jButtonCrearUsuario;
+    private javax.swing.JButton jButtonCrear;
     private javax.swing.JButton jButtonExit;
     private javax.swing.JCheckBox jCheckBoxAmueblado;
     private javax.swing.JCheckBox jCheckBoxPatio;
@@ -438,7 +451,7 @@ public class NuevaPublicacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextAreaDescripcion;
     private javax.swing.JTextField jTextFieldCalle;
     private javax.swing.JTextField jTextFieldDepto;
     private javax.swing.JTextField jTextFieldHabitaciones;

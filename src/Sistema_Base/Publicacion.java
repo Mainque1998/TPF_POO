@@ -14,7 +14,7 @@ public class Publicacion {
     private String calle; // TODO CAMBIAR SEGUN PRECISE OPENSTREET
     private int piso;
     private int depto;
-    private Usuario dueño;
+    private int dueño; //TODO VER SI ES MEJOR DNI O USUARIO
     private String pago; //valores: mensual, semanal, etc.
     private int precio;
     private int cantHabitaciones;
@@ -24,7 +24,7 @@ public class Publicacion {
     private String descripcion; //descripcion detallada por el dueño
     
     //Constructor
-    public Publicacion(int id, String tipo, String zona, String calle, int piso, int depto, Usuario dueño, String pago, int precio, int cantHabitaciones, int metrosCuadrados, boolean esAmueblado, boolean tienePatio, String descripcion) {
+    public Publicacion(int id, String tipo, String zona, String calle, int piso, int depto, int dueño, String pago, int precio, int cantHabitaciones, int metrosCuadrados, boolean esAmueblado, boolean tienePatio, String descripcion) {
         this.id = id;
         this.tipo = tipo;
         this.zona = zona;
@@ -54,7 +54,7 @@ public class Publicacion {
         return zona;
     }
 
-    public Usuario getDueño() {
+    public int getDueño() {
         return dueño;
     }
 
@@ -92,5 +92,9 @@ public class Publicacion {
 
     public String getDescripcion() {
         return descripcion;
+    }
+    
+    public String getCalle() {
+        return calle;
     }
 }

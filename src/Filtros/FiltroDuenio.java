@@ -15,7 +15,8 @@ public class FiltroDuenio implements Filtro {
     }
     
     @Override
-    public boolean cumple(Publicacion p) {
-        return (p.getDueño().getNombre().equals(dueño));
+    public boolean cumple(Publicacion p) {//TODO Comparar el nombre asociado al dni de la pub con el string dueño
+        return false;
+        //return (p.getDueño().getNombre().equals(dueño));
     }
 }

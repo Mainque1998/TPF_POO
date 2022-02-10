@@ -6,6 +6,7 @@ package Interfaz.Ventanas;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -141,16 +142,14 @@ public class Login extends javax.swing.JFrame {
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
         int dni = Integer.valueOf(jTextFieldUsuario.getText().strip());
         String contraseña = jPassword.getPassword().toString();
-        //Consultar a la BD si existe el usuario con el DNI y la contraseña
-        //Si concuerda entonces pasa al siguiente menu.
-        if(true){
+        
+        if(true){//Consultar a la BD si existe el usuario con el DNI y la contraseña
             this.dniUsuario = dni;
             Menu menu = new Menu();
             menu.setVisible(true);
             this.setVisible(false);
-            //activar el menu
         }else{
-            //activar error
+            JOptionPane.showMessageDialog(null, "El DNI y/o la contraseña son incorrectos");
         }
     }//GEN-LAST:event_jButtonIngresarActionPerformed
 

@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Mainque
  */
 public class Publicaciones {
-    private ArrayList<Publicacion> lista;
+    private static ArrayList<Publicacion> lista = new ArrayList<Publicacion>();
 
     //Constructor
     public Publicaciones(ArrayList<Publicacion> lista) {
@@ -27,23 +27,34 @@ public class Publicaciones {
         return result;
     }
     
-    //Metodos para agregar y eliminar publicaciones
-    public void agregar(int id, String tipo, String zona, String calle, Usuario dueño, String pago, int precio, int cantHabitaciones, int metrosCuadrados, boolean esAmueblado, String descripcion){
-        Publicacion p = new Publicacion(id, tipo, zona, calle, dueño, pago, precio, cantHabitaciones, metrosCuadrados, esAmueblado, descripcion);
+    //Metodo para agregar una publicacion, en caso de hacerlo correctamente devuelve true
+    public static boolean agregar(int id, String tipo, String zona, String calle, int piso, int depto, int dueño, String pago, int precio, int cantHabitaciones, int metrosCuadrados, boolean esAmueblado, boolean tienePatio, String descripcion){
+        //Verificamos que no exista en la lista
+        boolean existe = false;
+        for(Publicacion p: lista){
+            existe= (calle.equals(p.getCalle()) && piso==p.getPiso() && depto==p.getDepto());
+            if(existe)
+                return false;
+        }
+        //La agregamos
+        Publicacion p = new Publicacion(id, tipo, zona, calle, piso, depto, dueño, pago, precio, cantHabitaciones, metrosCuadrados, esAmueblado, tienePatio, descripcion);
         lista.add(p);
+        return true;
     }//TODO: VERIFICAR COMO ASIGNAR EL ID
     
-    public void eliminar(int id, int usuario){
+    //Metodo para eliminar una publicacion dado una calle, piso y depto y el usuario propietario, si lo hace correctamente devuelve true
+    public static boolean eliminar(String calle, int piso, int depto, int dueño){
         for(int i=0; i<lista.size(); i++){
             Publicacion p= lista.get(i);
-            if(p.getId() == id){//Buscamos la publicacion
-                if(p.getDueño().getDni()==usuario){//Verificamos que el usuario sea el dueño de la publicacion
+            if(p.getCalle()==calle && p.getPiso()==piso && p.getDepto()==depto){//Buscamos la publicacion
+                if(p.getDueño()==dueño){//Verificamos que el usuario sea el dueño de la publicacion
                     lista.remove(i);
+                    return true;
                 }else{
-                    // TODO AGREGAR ERROR DE QUE NO CORRESPONDE LA PUBLICACION CON EL USUARIO QUE DESEA ELIMINARLA
+                    return false;
                 }
-                break;//Termino el for porque solo hay una publicacion con determinado id
             }
         }
+        return false; //la publicación no existe
     }
 }
