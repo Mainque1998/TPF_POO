@@ -154,17 +154,27 @@ public class BorrarPublicacion extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCalleActionPerformed
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
-        //TODO Verificar que las cajas esten rellenedas correctamente, utilizar joptionpane para los errores
-        
-        boolean seElimino = Publicaciones.eliminar(jTextFieldCalle.getText(), Integer.valueOf(jTextFieldPiso.getText()), Integer.valueOf(jTextFieldDepartamento.getText()), Login.getDniUsuario());
-        if(seElimino){
-            //Se borra de la BD
-            JOptionPane.showMessageDialog(null, "La publicación se creó exitosamente.");
-            Menu anterior = new Menu();
-            anterior.setVisible(true);
-            this.setVisible(false);
+        if(jTextFieldCalle.getText().isEmpty()){
+            String piso=jTextFieldPiso.getText();
+            String depto=jTextFieldDepartamento.getText();
+            //Los campos piso y depto al no ser obligatorios se los pone en 0 si no fueron llenados
+            if(piso.isEmpty())
+                piso="0";
+            if(depto.isEmpty())
+                depto="0";
+            
+            boolean seElimino = Publicaciones.eliminar(jTextFieldCalle.getText(), Integer.valueOf(piso), Integer.valueOf(depto), Login.getDniUsuario());
+            if(seElimino){
+                //Se borra de la BD
+                JOptionPane.showMessageDialog(null, "La publicación se creó exitosamente.");
+                Menu anterior = new Menu();
+                anterior.setVisible(true);
+                this.setVisible(false);
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al eliminar la publicación, por favor revise los datos ingresados.");
+            }
         }else{
-            JOptionPane.showMessageDialog(null, "Error al eliminar la publicación, por favor revise los datos ingresados.");
+            JOptionPane.showMessageDialog(null, "El campo \"calle\" es obligatorio de llenar");
         }
     }//GEN-LAST:event_jButtonBorrarActionPerformed
 

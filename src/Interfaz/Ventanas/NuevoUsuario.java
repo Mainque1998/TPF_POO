@@ -6,6 +6,7 @@ package Interfaz.Ventanas;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -197,8 +198,34 @@ public class NuevoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldDNIActionPerformed
 
     private void jButtonCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearUsuarioActionPerformed
-        //Verificar que no exista usuario con el DNI
-        //Si no existe entonces se guarda en la BD y vuelve al menu inicial
+        //Verificamos que los campos esten rellenados
+        if(jTextFieldDNI.getText().isEmpty() || jTextFieldNombre.getText().isEmpty() || jTextFieldEmail.getText().isEmpty() || jTextFieldTelefono.getText().isEmpty() || jPassword.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios.");
+        }else{
+            //Verificamos que los campos DNI y Telefono esten compuestos por solo numeros
+            String dni = jTextFieldDNI.getText().strip();
+            String telefono = jTextFieldTelefono.getText().strip();
+            if(dni.matches("[+-]?\\d*(\\.\\d+)?") && telefono.matches("[+-]?\\d*(\\.\\d+)?")){
+                //Verificamos el mail
+                String email = jTextFieldEmail.getText().strip();
+                if(email.contains("@") && (email.endsWith(".com") || email.endsWith(".COM"))){
+                    //Verificamos que el password tenga almenos 6 digitos
+                    String password = jPassword.getText();
+                    if(password.length()>5){
+                        String nombre = jTextFieldNombre.getText().strip();
+                        //TODO Verificar que no exista usuario con el DNI
+                        //Si no existe entonces se guarda en la BD y vuelve al menu inicial
+                    }else{
+                        JOptionPane.showMessageDialog(null, "La contraseña debe tener al menos 6 caracteres.");
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Ingrese un Email correcto.");
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "El DNI y el télefono solo pueden llevar números.");
+            }
+            
+        }
     }//GEN-LAST:event_jButtonCrearUsuarioActionPerformed
 
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed

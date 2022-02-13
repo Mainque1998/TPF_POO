@@ -107,8 +107,8 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 211, 153));
-        jLabel2.setText("Usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, -1));
+        jLabel2.setText("DNI");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, -1, -1));
 
         jTextFieldUsuario.setBackground(new java.awt.Color(0, 211, 153));
         jTextFieldUsuario.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -118,7 +118,7 @@ public class Login extends javax.swing.JFrame {
                 jTextFieldUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 330, -1));
+        getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 250, -1));
 
         jPassword.setBackground(new java.awt.Color(0, 211, 153));
         jPassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N

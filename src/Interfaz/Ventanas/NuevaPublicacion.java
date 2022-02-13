@@ -318,18 +318,40 @@ public class NuevaPublicacion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jButtonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearActionPerformed
-        //TODO Verificar que las cajas esten rellenedas correctamente, utilizar joptionpane para los errores
-       
-        boolean seAgrego = Publicaciones.agregar(0, jComboBoxTipo.getSelectedItem().toString(), jComboBoxZona.getSelectedItem().toString(), jTextFieldCalle.getText(), Integer.valueOf(jTextFieldPiso.getText()), Integer.valueOf(jTextFieldDepto.getText()), Login.getDniUsuario(), jComboBoxPago.getSelectedItem().toString(), Integer.valueOf(jTextFieldPrecio.getText()), Integer.valueOf(jTextFieldHabitaciones.getText()), Integer.valueOf(jTextFieldMetrosCuadrados.getText()), jCheckBoxAmueblado.isSelected(), jCheckBoxPatio.isSelected(), jTextAreaDescripcion.getText());
-        
-        if(seAgrego){//Verificar que no exista una publicacion con la misma calle depto piso
-            //Si no existe entonces se guarda en la BD y vuelve al menu inicial
-            JOptionPane.showMessageDialog(null, "La publicación se creó exitosamente.");
-            Menu anterior = new Menu();
-            anterior.setVisible(true);
-            this.setVisible(false);
+        //Primero verificamos que no esten vacios los campos obligatorios
+        if(jTextFieldCalle.getText().isEmpty() || jTextFieldPrecio.getText().isEmpty() || jTextFieldHabitaciones.getText().isEmpty() || jTextFieldMetrosCuadrados.getText().isEmpty() || jTextAreaDescripcion.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios (a excepcion de piso y departamento).");
         }else{
-            JOptionPane.showMessageDialog(null, "Ya existe una publicación con la misma calle, piso y depto.");
+            String calle= jTextFieldCalle.getText().strip();
+            String precio= jTextFieldPrecio.getText().strip();
+            String cantH= jTextFieldHabitaciones.getText().strip();
+            String metros= jTextFieldMetrosCuadrados.getText().strip();
+            
+            String piso= jTextFieldPiso.getText().strip();
+            String depto= jTextFieldDepto.getText().strip();
+            //Los campos piso y depto al no ser obligatorios se los pone en 0 si no fueron llenados
+            if(piso.isEmpty())
+                piso="0";
+            if(depto.isEmpty())
+                depto="0";
+            
+            //Luego verificamos que los campos numericos solo contengan numeros
+            if(precio.matches("[+-]?\\d*(\\.\\d+)?") && cantH.matches("[+-]?\\d*(\\.\\d+)?") && metros.matches("[+-]?\\d*(\\.\\d+)?") && piso.matches("[+-]?\\d*(\\.\\d+)?") && depto.matches("[+-]?\\d*(\\.\\d+)?")){
+                boolean seAgrego = Publicaciones.agregar(0, jComboBoxTipo.getSelectedItem().toString(), jComboBoxZona.getSelectedItem().toString(), calle, Integer.valueOf(piso), Integer.valueOf(depto), Login.getDniUsuario(), jComboBoxPago.getSelectedItem().toString(), Integer.valueOf(precio), Integer.valueOf(cantH), Integer.valueOf(metros), jCheckBoxAmueblado.isSelected(), jCheckBoxPatio.isSelected(), jTextAreaDescripcion.getText());
+
+                if(seAgrego){//Verificar que no exista una publicacion con la misma calle depto piso
+                    //Si no existe entonces se guarda en la BD y vuelve al menu inicial
+                    JOptionPane.showMessageDialog(null, "La publicación se creó exitosamente.");
+                    Menu anterior = new Menu();
+                    anterior.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Ya existe una publicación con la misma calle, piso y depto.");
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Los campos numéricos solo pueden contener números.");
+            }
         }
     }//GEN-LAST:event_jButtonCrearActionPerformed
 
