@@ -113,17 +113,19 @@ public class Login extends javax.swing.JFrame {
         jTextFieldUsuario.setBackground(new java.awt.Color(0, 211, 153));
         jTextFieldUsuario.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 250, -1));
+        getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 200, -1));
 
         jPassword.setBackground(new java.awt.Color(0, 211, 153));
         jPassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jPassword.setForeground(new java.awt.Color(0, 0, 0));
-        getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 330, -1));
+        jPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 260, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/Fondo1.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 445, 515));

@@ -69,7 +69,7 @@ public class BorrarPublicacion extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 211, 153));
         jLabel2.setText("Calle");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
 
         jTextFieldCalle.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldCalle.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N

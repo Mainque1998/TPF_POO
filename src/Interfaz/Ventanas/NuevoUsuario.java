@@ -85,6 +85,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
         jTextFieldDNI.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldDNI.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldDNI.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldDNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDNIActionPerformed(evt);
@@ -95,11 +96,13 @@ public class NuevoUsuario extends javax.swing.JFrame {
         jPassword.setBackground(new java.awt.Color(0, 217, 153));
         jPassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jPassword.setForeground(new java.awt.Color(0, 0, 0));
+        jPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 330, -1));
 
         jTextFieldNombre.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldNombre.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldNombre.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNombreActionPerformed(evt);
@@ -115,6 +118,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
         jTextFieldEmail.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldEmail.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldEmail.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldEmailActionPerformed(evt);
@@ -130,6 +134,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
         jTextFieldTelefono.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldTelefono.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldTelefono.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldTelefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldTelefonoActionPerformed(evt);
