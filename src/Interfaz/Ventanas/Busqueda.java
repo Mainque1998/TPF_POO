@@ -469,7 +469,8 @@ public class Busqueda extends javax.swing.JFrame {
         getContentPane().add(jButtonAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 40, 20));
 
         jLabelFondo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/Fondo1.jpg"))); // NOI18N
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/fondo.png"))); // NOI18N
+        jLabelFondo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 217, 153)));
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 500));
 
         pack();

@@ -104,7 +104,8 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 260, 30));
 
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/Fondo1.jpg"))); // NOI18N
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/fondo.png"))); // NOI18N
+        jLabelFondo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 217, 153)));
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 445, 515));
 
         pack();

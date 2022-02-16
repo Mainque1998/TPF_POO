@@ -205,7 +205,14 @@
     <Component class="javax.swing.JLabel" name="jLabelFondo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Interfaz/Imagenes/Fondo1.jpg"/>
+          <Image iconType="3" name="/Interfaz/Imagenes/fondo.png"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder>
+              <Color PropertyName="color" blue="99" green="d9" red="0" type="rgb"/>
+            </LineBorder>
+          </Border>
         </Property>
       </Properties>
       <Constraints>
