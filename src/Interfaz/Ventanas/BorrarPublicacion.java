@@ -154,7 +154,7 @@ public class BorrarPublicacion extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCalleActionPerformed
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
-        if(jTextFieldCalle.getText().isEmpty()){
+        if(!jTextFieldCalle.getText().isEmpty()){
             String piso=jTextFieldPiso.getText();
             String depto=jTextFieldDepartamento.getText();
             //Los campos piso y depto al no ser obligatorios se los pone en 0 si no fueron llenados
@@ -174,7 +174,7 @@ public class BorrarPublicacion extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Error al eliminar la publicación, por favor revise los datos ingresados.");
             }
         }else{
-            JOptionPane.showMessageDialog(null, "El campo \"calle\" es obligatorio de llenar");
+            JOptionPane.showMessageDialog(null, "El campo calle es obligatorio de llenar");
         }
     }//GEN-LAST:event_jButtonBorrarActionPerformed
 

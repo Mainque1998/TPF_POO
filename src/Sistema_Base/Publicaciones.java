@@ -10,9 +10,11 @@ import java.util.ArrayList;
 public class Publicaciones {
     private static ArrayList<Publicacion> lista = new ArrayList<Publicacion>();
 
-    //Constructor
+    //Constructores
     public Publicaciones(ArrayList<Publicacion> lista) {
         this.lista = lista;
+    }
+    public Publicaciones() {
     }
     
     //Metodo para obtener las publicaciones segun un filtrado

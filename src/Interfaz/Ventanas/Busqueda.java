@@ -4,9 +4,11 @@
  */
 package Interfaz.Ventanas;
 
-import Sistema_Base.Publicaciones;
+import Filtros.*;
+import Sistema_Base.*;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
@@ -65,7 +67,7 @@ public class Busqueda extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jCheckBoxFDuenio = new javax.swing.JCheckBox();
         jTextFieldDuenio = new javax.swing.JTextField();
-        jButtonCrear = new javax.swing.JButton();
+        jButtonFiltrar = new javax.swing.JButton();
         jButtonInfo = new javax.swing.JButton();
         jButtonAtras = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
@@ -424,19 +426,19 @@ public class Busqueda extends javax.swing.JFrame {
         });
         getContentPane().add(jTextFieldDuenio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 180, -1));
 
-        jButtonCrear.setBackground(new java.awt.Color(0, 217, 153));
-        jButtonCrear.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jButtonCrear.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonCrear.setText("Filtrar");
-        jButtonCrear.setBorder(null);
-        jButtonCrear.setBorderPainted(false);
-        jButtonCrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonCrear.addActionListener(new java.awt.event.ActionListener() {
+        jButtonFiltrar.setBackground(new java.awt.Color(0, 217, 153));
+        jButtonFiltrar.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jButtonFiltrar.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonFiltrar.setText("Filtrar");
+        jButtonFiltrar.setBorder(null);
+        jButtonFiltrar.setBorderPainted(false);
+        jButtonFiltrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonFiltrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCrearActionPerformed(evt);
+                jButtonFiltrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 90, 30));
+        getContentPane().add(jButtonFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 90, 30));
 
         jButtonInfo.setBackground(new java.awt.Color(0, 217, 153));
         jButtonInfo.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
@@ -477,11 +479,111 @@ public class Busqueda extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButtonExitActionPerformed
 
-    private void jButtonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearActionPerformed
-        //Primero verificamos que esten bien llenados los campos seleccionados
-        //Luego creamos los filtros segun los campos seleccionados
+    private void jButtonFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFiltrarActionPerformed
+        //Primero creamos los filtros para cada opcion seleccionada y la agregamos a una lista de filtros
+        ArrayList<Filtro> filtros = new ArrayList<Filtro>();
+        boolean errorNumero = false; //Boleano para detectar que un campo numerico tiene otros caracteres
+        boolean errorVacio = false; //Boleano para detectar que un campo seleccionado esta vacio
         
-    }//GEN-LAST:event_jButtonCrearActionPerformed
+        if (jCheckBoxFTipo.isSelected()){
+            FiltroTipo f = new FiltroTipo(jComboBoxTipo.getSelectedItem().toString());
+            filtros.add(f);
+        }
+        
+        if (jCheckBoxFPrecio.isSelected()){
+            if( !(jTextFieldPrecioMin.getText().isEmpty()) && !(jTextFieldPrecioMax.getText().isEmpty()) ){
+                String p1 = jTextFieldPrecioMin.getText().strip();
+                String p2 = jTextFieldPrecioMax.getText().strip();
+                if(p1.matches("[+-]?\\d*(\\.\\d+)?") && p2.matches("[+-]?\\d*(\\.\\d+)?")){
+                    FiltroRangoPrecio f = new FiltroRangoPrecio(Integer.valueOf(p1), Integer.valueOf(p2));
+                    filtros.add(f);
+                }else{
+                    errorNumero = true;
+                }
+            }else{
+                errorVacio = true;
+            }
+        }
+
+        if (jCheckBoxFPago.isSelected()){
+            FiltroPago f = new FiltroPago(jComboBoxPago.getSelectedItem().toString());
+            filtros.add(f);
+        }
+        
+        if (jCheckBoxFZona.isSelected()){
+            FiltroZona f = new FiltroZona(jComboBoxZona.getSelectedItem().toString());
+            filtros.add(f);
+        }
+        
+        if (jCheckBoxFHabitaciones.isSelected()){
+            if( !jTextFieldHabitaciones.getText().isEmpty() ){
+                String h = jTextFieldHabitaciones.getText().strip();
+                if( h.matches("[+-]?\\d*(\\.\\d+)?") ){
+                    FiltroHabitaciones f = new FiltroHabitaciones(Integer.valueOf(h));
+                    filtros.add(f);
+                }else{
+                    errorNumero= true;
+                }
+            }else{
+                errorVacio= true;
+            }
+        }
+        
+        if (jCheckBoxFMetros.isSelected()){
+            if( !(jTextFieldMetrosMin.getText().isEmpty()) && !(jTextFieldMetrosMax.getText().isEmpty()) ){
+                String m1 = jTextFieldMetrosMin.getText().strip();
+                String m2 = jTextFieldMetrosMax.getText().strip();
+                if(m1.matches("[+-]?\\d*(\\.\\d+)?") && m2.matches("[+-]?\\d*(\\.\\d+)?")){
+                    FiltroRangoTamanio f = new FiltroRangoTamanio(Integer.valueOf(m1), Integer.valueOf(m2));
+                    filtros.add(f);
+                }else{
+                    errorNumero = true;
+                }
+            }else{
+                errorVacio = true;
+            }
+        }
+        
+        if (jCheckBoxFPatio.isSelected()){
+            FiltroPatio f = new FiltroPatio(jCheckBoxPatio.isSelected());
+            filtros.add(f);
+        }
+        
+        if (jCheckBoxFAmueblado.isSelected()){
+            FiltroAmueblado f = new FiltroAmueblado(jCheckBoxAmueblado.isSelected());
+            filtros.add(f);
+        }
+        
+        if (jCheckBoxFDuenio.isSelected()){
+            if( !jTextFieldDuenio.getText().isEmpty() ){
+                FiltroDuenio f = new FiltroDuenio(jTextFieldDuenio.getText().strip());
+                filtros.add(f);
+            }else{
+                errorVacio= true;
+            }
+        }
+        
+        if(errorNumero)
+            JOptionPane.showMessageDialog(null, "Los campos numericos solo deben tener números.");
+        if(errorVacio)
+            JOptionPane.showMessageDialog(null, "Por favor, llenar los campos de las opciones seleccionadas para filtrar.");
+        
+        //Creamos el filtro final y buscamos en la lista de publicaciones
+        if(!errorNumero && !errorVacio && !filtros.isEmpty()){
+            ArrayList<Publicacion> resultado = new ArrayList<Publicacion>();
+            Publicaciones listaP = new Publicaciones();
+            if(filtros.size()==1){
+                resultado= listaP.buscar(filtros.get(0));
+            }else{//Tiene más de un filtro
+                FiltroAnd fAnd = new FiltroAnd(filtros.get(0), filtros.get(1));
+                for(int i=2; i<filtros.size(); i++){
+                    fAnd = new FiltroAnd(fAnd, filtros.get(i));
+                }
+                resultado= listaP.buscar(fAnd);
+            }
+        }
+        //TODO ver que hacer con resultado
+    }//GEN-LAST:event_jButtonFiltrarActionPerformed
 
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
         Menu anterior = new Menu();
@@ -637,8 +739,8 @@ public class Busqueda extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAtras;
-    private javax.swing.JButton jButtonCrear;
     private javax.swing.JButton jButtonExit;
+    private javax.swing.JButton jButtonFiltrar;
     private javax.swing.JButton jButtonInfo;
     private javax.swing.JCheckBox jCheckBoxAmueblado;
     private javax.swing.JCheckBox jCheckBoxFAmueblado;

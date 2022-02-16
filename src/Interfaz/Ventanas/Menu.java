@@ -115,7 +115,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        
+        Busqueda siguiente = new Busqueda();
+        siguiente.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearActionPerformed
