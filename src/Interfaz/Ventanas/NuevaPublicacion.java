@@ -324,6 +324,7 @@ public class NuevaPublicacion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios (a excepcion de piso y departamento).");
         }else{
             String calle= jTextFieldCalle.getText().strip();
+            String altura = "-1"; //String altura= jTextFieldAltura.getText().strip(); TODO agregar caja para poner altura y leugo verificar que sea numerica
             String precio= jTextFieldPrecio.getText().strip();
             String cantH= jTextFieldHabitaciones.getText().strip();
             String metros= jTextFieldMetrosCuadrados.getText().strip();
@@ -338,7 +339,7 @@ public class NuevaPublicacion extends javax.swing.JFrame {
             
             //Luego verificamos que los campos numericos solo contengan numeros
             if(precio.matches("[+-]?\\d*(\\.\\d+)?") && cantH.matches("[+-]?\\d*(\\.\\d+)?") && metros.matches("[+-]?\\d*(\\.\\d+)?") && piso.matches("[+-]?\\d*(\\.\\d+)?") && depto.matches("[+-]?\\d*(\\.\\d+)?")){
-                boolean seAgrego = Publicaciones.agregar(0, jComboBoxTipo.getSelectedItem().toString(), jComboBoxZona.getSelectedItem().toString(), calle, Integer.valueOf(piso), Integer.valueOf(depto), Login.getDniUsuario(), jComboBoxPago.getSelectedItem().toString(), Integer.valueOf(precio), Integer.valueOf(cantH), Integer.valueOf(metros), jCheckBoxAmueblado.isSelected(), jCheckBoxPatio.isSelected(), jTextAreaDescripcion.getText());
+                boolean seAgrego = Publicaciones.agregar(0, jComboBoxTipo.getSelectedItem().toString(), jComboBoxZona.getSelectedItem().toString(), calle, Integer.valueOf(altura), Integer.valueOf(piso), Integer.valueOf(depto), Login.getDniUsuario(), jComboBoxPago.getSelectedItem().toString(), Integer.valueOf(precio), Integer.valueOf(cantH), Integer.valueOf(metros), jCheckBoxAmueblado.isSelected(), jCheckBoxPatio.isSelected(), jTextAreaDescripcion.getText());
 
                 if(seAgrego){//Verificar que no exista una publicacion con la misma calle depto piso
                     //Si no existe entonces se guarda en la BD y vuelve al menu inicial

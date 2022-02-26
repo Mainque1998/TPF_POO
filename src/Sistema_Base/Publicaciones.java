@@ -30,7 +30,7 @@ public class Publicaciones {
     }
     
     //Metodo para agregar una publicacion, en caso de hacerlo correctamente devuelve true
-    public static boolean agregar(int id, String tipo, String zona, String calle, int piso, int depto, int dueño, String pago, int precio, int cantHabitaciones, int metrosCuadrados, boolean esAmueblado, boolean tienePatio, String descripcion){
+    public static boolean agregar(int id, String tipo, String zona, String calle, int altura, int piso, int depto, int dueño, String pago, int precio, int cantHabitaciones, int metrosCuadrados, boolean esAmueblado, boolean tienePatio, String descripcion){
         //Verificamos que no exista en la lista
         boolean existe = false;
         for(Publicacion p: lista){
@@ -39,7 +39,7 @@ public class Publicaciones {
                 return false;
         }
         //La agregamos
-        Publicacion p = new Publicacion(id, tipo, zona, calle, piso, depto, dueño, pago, precio, cantHabitaciones, metrosCuadrados, esAmueblado, tienePatio, descripcion);
+        Publicacion p = new Publicacion(id, tipo, zona, calle, altura, piso, depto, dueño, pago, precio, cantHabitaciones, metrosCuadrados, esAmueblado, tienePatio, descripcion);
         lista.add(p);
         return true;
     }//TODO: VERIFICAR COMO ASIGNAR EL ID

@@ -1,7 +1,5 @@
 package Sistema_Base;
 
-import Filtros.Filtro;
-
 /**
  * Clase que hace de una publicacion determinada con sus respectivos detalles
  * @author Mainque
@@ -12,9 +10,10 @@ public class Publicacion {
     private String tipo; //valores: venta, alquiler, residencia
     private String zona;
     private String calle; // TODO CAMBIAR SEGUN PRECISE OPENSTREET
+    private int altura; //TODO AGREGAR EN EL CONTRUSCTOR Y DEMAS
     private int piso;
     private int depto;
-    private int dueño; //TODO VER SI ES MEJOR DNI O USUARIO
+    private int duenio; //TODO VER SI ES MEJOR DNI O USUARIO
     private String pago; //valores: mensual, semanal, etc.
     private int precio;
     private int cantHabitaciones;
@@ -24,14 +23,15 @@ public class Publicacion {
     private String descripcion; //descripcion detallada por el dueño
     
     //Constructor
-    public Publicacion(int id, String tipo, String zona, String calle, int piso, int depto, int dueño, String pago, int precio, int cantHabitaciones, int metrosCuadrados, boolean esAmueblado, boolean tienePatio, String descripcion) {
+    public Publicacion(int id, String tipo, String zona, String calle, int altura, int piso, int depto, int dueño, String pago, int precio, int cantHabitaciones, int metrosCuadrados, boolean esAmueblado, boolean tienePatio, String descripcion) {
         this.id = id;
         this.tipo = tipo;
         this.zona = zona;
         this.calle = calle;
+        this.altura = altura;
         this.piso = piso;
         this.depto = depto;
-        this.dueño = dueño;
+        this.duenio = dueño;
         this.pago = pago;
         this.precio = precio;
         this.cantHabitaciones = cantHabitaciones;
@@ -55,7 +55,7 @@ public class Publicacion {
     }
 
     public int getDueño() {
-        return dueño;
+        return duenio;
     }
 
     public String getPago() {
@@ -96,5 +96,9 @@ public class Publicacion {
     
     public String getCalle() {
         return calle;
+    }
+    
+    public int getAltura() {
+        return altura;
     }
 }
