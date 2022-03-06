@@ -101,4 +101,22 @@ public class Publicacion {
     public int getAltura() {
         return altura;
     }
+
+    @Override
+    public String toString() {
+        String patio ="";
+        String amueblado ="";
+        if(tienePatio)
+            patio=", con patio";
+        if(esAmueblado)
+            amueblado=", es amueblado";
+        
+        String piso_depto="";
+        if(piso>0 || depto>0)
+            piso_depto= ", piso " + piso + ", depto " + depto;
+        
+        return tipo + " con pago " + pago + " de $" + precio + ", en zona " + zona + ", calle " + calle + altura + piso_depto + ", con " + cantHabitaciones + " habitaciones, " + metrosCuadrados + " metros cuadrados"+ patio + amueblado +". Descripcion extra: " + descripcion;
+    }
+    
+    
 }

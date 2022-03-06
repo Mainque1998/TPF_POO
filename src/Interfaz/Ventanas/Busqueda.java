@@ -9,6 +9,7 @@ import Sistema_Base.*;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 
@@ -22,6 +23,7 @@ public class Busqueda extends javax.swing.JFrame {
     public Busqueda() {
         initComponents();
         this.setLocationRelativeTo(null);
+        limpiarJList();
     }
 
     public Image getIconImage() {
@@ -70,6 +72,9 @@ public class Busqueda extends javax.swing.JFrame {
         jButtonFiltrar = new javax.swing.JButton();
         jButtonInfo = new javax.swing.JButton();
         jButtonAtras = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListResult = new javax.swing.JList<>();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,7 +84,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jButtonExit.setBackground(new java.awt.Color(255, 0, 0));
         jButtonExit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButtonExit.setForeground(new java.awt.Color(0, 0, 0));
         jButtonExit.setText("Salir");
         jButtonExit.setBorder(null);
         jButtonExit.setBorderPainted(false);
@@ -98,7 +102,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jComboBoxTipo.setBackground(new java.awt.Color(0, 217, 153));
         jComboBoxTipo.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBoxTipo.setForeground(new java.awt.Color(0, 0, 0));
         jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alquiler", "Venta", "Residencia" }));
         jComboBoxTipo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jComboBoxTipo.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +113,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jCheckBoxFTipo.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxFTipo.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jCheckBoxFTipo.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBoxFTipo.setAlignmentY(0.0F);
         jCheckBoxFTipo.setBorder(null);
         jCheckBoxFTipo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -133,7 +135,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jCheckBoxFPrecio.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxFPrecio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jCheckBoxFPrecio.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBoxFPrecio.setAlignmentY(0.0F);
         jCheckBoxFPrecio.setBorder(null);
         jCheckBoxFPrecio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -151,7 +152,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jTextFieldPrecioMin.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldPrecioMin.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jTextFieldPrecioMin.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldPrecioMin.setText("Min");
         jTextFieldPrecioMin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,7 +162,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jTextFieldPrecioMax.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldPrecioMax.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jTextFieldPrecioMax.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldPrecioMax.setText("Max");
         jTextFieldPrecioMax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,7 +172,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jCheckBoxFPago.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxFPago.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jCheckBoxFPago.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBoxFPago.setAlignmentY(0.0F);
         jCheckBoxFPago.setBorder(null);
         jCheckBoxFPago.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -191,7 +189,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jComboBoxPago.setBackground(new java.awt.Color(0, 217, 153));
         jComboBoxPago.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBoxPago.setForeground(new java.awt.Color(0, 0, 0));
         jComboBoxPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mensual", "Por día", "Por semana" }));
         jComboBoxPago.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jComboBoxPago.addActionListener(new java.awt.event.ActionListener() {
@@ -209,7 +206,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jCheckBoxFZona.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxFZona.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jCheckBoxFZona.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBoxFZona.setAlignmentY(0.0F);
         jCheckBoxFZona.setBorder(null);
         jCheckBoxFZona.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -227,7 +223,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jComboBoxZona.setBackground(new java.awt.Color(0, 217, 153));
         jComboBoxZona.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBoxZona.setForeground(new java.awt.Color(0, 0, 0));
         jComboBoxZona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Centro", "Semi-Centro", "Villa Italia", "Movediza" }));
         jComboBoxZona.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jComboBoxZona, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 180, -1));
@@ -239,7 +234,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jCheckBoxFHabitaciones.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxFHabitaciones.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jCheckBoxFHabitaciones.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBoxFHabitaciones.setAlignmentY(0.0F);
         jCheckBoxFHabitaciones.setBorder(null);
         jCheckBoxFHabitaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -257,7 +251,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jTextFieldHabitaciones.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldHabitaciones.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldHabitaciones.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldHabitaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldHabitacionesActionPerformed(evt);
@@ -272,7 +265,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jCheckBoxFMetros.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxFMetros.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jCheckBoxFMetros.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBoxFMetros.setAlignmentY(0.0F);
         jCheckBoxFMetros.setBorder(null);
         jCheckBoxFMetros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -290,7 +282,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jTextFieldMetrosMin.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldMetrosMin.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldMetrosMin.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldMetrosMin.setText("Min");
         jTextFieldMetrosMin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,7 +292,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jTextFieldMetrosMax.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldMetrosMax.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldMetrosMax.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldMetrosMax.setText("Max");
         jTextFieldMetrosMax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,7 +307,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jCheckBoxFPatio.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxFPatio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jCheckBoxFPatio.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBoxFPatio.setAlignmentY(0.0F);
         jCheckBoxFPatio.setBorder(null);
         jCheckBoxFPatio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -335,7 +324,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jCheckBoxPatio.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxPatio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jCheckBoxPatio.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBoxPatio.setAlignmentY(0.0F);
         jCheckBoxPatio.setBorder(null);
         jCheckBoxPatio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -358,7 +346,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jCheckBoxFAmueblado.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxFAmueblado.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jCheckBoxFAmueblado.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBoxFAmueblado.setAlignmentY(0.0F);
         jCheckBoxFAmueblado.setBorder(null);
         jCheckBoxFAmueblado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -376,7 +363,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jCheckBoxAmueblado.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxAmueblado.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jCheckBoxAmueblado.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBoxAmueblado.setAlignmentY(0.0F);
         jCheckBoxAmueblado.setBorder(null);
         jCheckBoxAmueblado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -400,7 +386,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jCheckBoxFDuenio.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxFDuenio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jCheckBoxFDuenio.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBoxFDuenio.setAlignmentY(0.0F);
         jCheckBoxFDuenio.setBorder(null);
         jCheckBoxFDuenio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -418,7 +403,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jTextFieldDuenio.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldDuenio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldDuenio.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldDuenio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDuenioActionPerformed(evt);
@@ -428,7 +412,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jButtonFiltrar.setBackground(new java.awt.Color(0, 217, 153));
         jButtonFiltrar.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jButtonFiltrar.setForeground(new java.awt.Color(0, 0, 0));
         jButtonFiltrar.setText("Filtrar");
         jButtonFiltrar.setBorder(null);
         jButtonFiltrar.setBorderPainted(false);
@@ -442,7 +425,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jButtonInfo.setBackground(new java.awt.Color(0, 217, 153));
         jButtonInfo.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jButtonInfo.setForeground(new java.awt.Color(0, 0, 0));
         jButtonInfo.setText("?");
         jButtonInfo.setBorder(null);
         jButtonInfo.setBorderPainted(false);
@@ -456,7 +438,6 @@ public class Busqueda extends javax.swing.JFrame {
 
         jButtonAtras.setBackground(new java.awt.Color(0, 217, 153));
         jButtonAtras.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButtonAtras.setForeground(new java.awt.Color(0, 0, 0));
         jButtonAtras.setText("Atras");
         jButtonAtras.setBorder(null);
         jButtonAtras.setBorderPainted(false);
@@ -467,6 +448,24 @@ public class Busqueda extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 40, 20));
+
+        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 211, 153));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Resultados");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 250, 30));
+
+        jListResult.setBackground(new java.awt.Color(0, 217, 153));
+        jListResult.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jListResult.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jListResult.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(jListResult);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 720, 450));
 
         jLabelFondo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/fondo.png"))); // NOI18N
@@ -481,16 +480,18 @@ public class Busqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jButtonFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFiltrarActionPerformed
+        limpiarJList();     
         //Primero creamos los filtros para cada opcion seleccionada y la agregamos a una lista de filtros
         ArrayList<Filtro> filtros = new ArrayList<Filtro>();
         boolean errorNumero = false; //Boleano para detectar que un campo numerico tiene otros caracteres
         boolean errorVacio = false; //Boleano para detectar que un campo seleccionado esta vacio
         
+        //Verifico si agregar filtro por tipo
         if (jCheckBoxFTipo.isSelected()){
             FiltroTipo f = new FiltroTipo(jComboBoxTipo.getSelectedItem().toString());
             filtros.add(f);
         }
-        
+        //Verifico si agregar filtro por precio
         if (jCheckBoxFPrecio.isSelected()){
             if( !(jTextFieldPrecioMin.getText().isEmpty()) && !(jTextFieldPrecioMax.getText().isEmpty()) ){
                 String p1 = jTextFieldPrecioMin.getText().strip();
@@ -505,17 +506,17 @@ public class Busqueda extends javax.swing.JFrame {
                 errorVacio = true;
             }
         }
-
+        //Verifico si agregar filtro por pago
         if (jCheckBoxFPago.isSelected()){
             FiltroPago f = new FiltroPago(jComboBoxPago.getSelectedItem().toString());
             filtros.add(f);
         }
-        
+        //Verifico si agregar filtro por zona
         if (jCheckBoxFZona.isSelected()){
             FiltroZona f = new FiltroZona(jComboBoxZona.getSelectedItem().toString());
             filtros.add(f);
         }
-        
+        //Verifico si agregar filtro por cantidad de habitaciones
         if (jCheckBoxFHabitaciones.isSelected()){
             if( !jTextFieldHabitaciones.getText().isEmpty() ){
                 String h = jTextFieldHabitaciones.getText().strip();
@@ -529,7 +530,7 @@ public class Busqueda extends javax.swing.JFrame {
                 errorVacio= true;
             }
         }
-        
+        //Verifico si agregar filtro por metros cuadrados
         if (jCheckBoxFMetros.isSelected()){
             if( !(jTextFieldMetrosMin.getText().isEmpty()) && !(jTextFieldMetrosMax.getText().isEmpty()) ){
                 String m1 = jTextFieldMetrosMin.getText().strip();
@@ -544,17 +545,17 @@ public class Busqueda extends javax.swing.JFrame {
                 errorVacio = true;
             }
         }
-        
+        //Verifico si agregar filtro por si tiene patio
         if (jCheckBoxFPatio.isSelected()){
             FiltroPatio f = new FiltroPatio(jCheckBoxPatio.isSelected());
             filtros.add(f);
         }
-        
+        //Verifico si agregar filtro por si es amueblado
         if (jCheckBoxFAmueblado.isSelected()){
             FiltroAmueblado f = new FiltroAmueblado(jCheckBoxAmueblado.isSelected());
             filtros.add(f);
         }
-        
+        //Verifico si agregar filtro por dueño
         if (jCheckBoxFDuenio.isSelected()){
             if( !jTextFieldDuenio.getText().isEmpty() ){
                 FiltroDuenio f = new FiltroDuenio(jTextFieldDuenio.getText().strip());
@@ -563,13 +564,13 @@ public class Busqueda extends javax.swing.JFrame {
                 errorVacio= true;
             }
         }
-        
+        //Verifico que no haya errores
         if(errorNumero)
             JOptionPane.showMessageDialog(null, "Los campos numericos solo deben tener números.");
         if(errorVacio)
             JOptionPane.showMessageDialog(null, "Por favor, llenar los campos de las opciones seleccionadas para filtrar.");
         
-        //Creamos el filtro final y buscamos en la lista de publicaciones
+        //Creamos el filtro final y filtramos las publicaciones
         if(!errorNumero && !errorVacio && !filtros.isEmpty()){
             ArrayList<Publicacion> resultado = new ArrayList<Publicacion>();
             Publicaciones listaP = new Publicaciones();
@@ -582,10 +583,21 @@ public class Busqueda extends javax.swing.JFrame {
                 }
                 resultado= listaP.buscar(fAnd);
             }
+            //Cargamos el resultado en la lista
+            DefaultListModel modelo = (DefaultListModel) jListResult.getModel();
+            for(Publicacion p: resultado){
+                System.out.println(p.toString());//PRUEBA
+                modelo.addElement(p.toString());
+            }
         }
-        //TODO ver que hacer con resultado
     }//GEN-LAST:event_jButtonFiltrarActionPerformed
 
+    private DefaultListModel limpiarJList(){
+        DefaultListModel modelo = new DefaultListModel();
+        jListResult.setModel(modelo);
+        return modelo;
+    }
+    
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
         Menu anterior = new Menu();
         anterior.setVisible(true);
@@ -760,12 +772,15 @@ public class Busqueda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelFondo;
+    private javax.swing.JList<String> jListResult;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextFieldDuenio;
     private javax.swing.JTextField jTextFieldHabitaciones;
     private javax.swing.JTextField jTextFieldMetrosMax;
