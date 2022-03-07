@@ -42,21 +42,28 @@ public class Publicaciones {
         Publicacion p = new Publicacion(id, tipo, zona, calle, altura, piso, depto, dueño, pago, precio, cantHabitaciones, metrosCuadrados, esAmueblado, tienePatio, descripcion);
         lista.add(p);
         return true;
-    }//TODO: VERIFICAR COMO ASIGNAR EL ID
+    }//TODO VERIFICAR COMO ASIGNAR EL ID
+    //TODO TAMBIEN DEBE MODIFICAR LA BD
     
     //Metodo para eliminar una publicacion dado una calle, piso y depto y el usuario propietario, si lo hace correctamente devuelve true
     public static boolean eliminar(String calle, int piso, int depto, int dueño){
         for(int i=0; i<lista.size(); i++){
             Publicacion p= lista.get(i);
-            if(p.getCalle()==calle && p.getPiso()==piso && p.getDepto()==depto){//Buscamos la publicacion
+            System.out.println(p.getCalle() +" "+ p.getAltura());
+            System.out.println(p.getPiso());
+            System.out.println(p.getDepto());
+            if( calle.equals(p.getCalle() +" "+ p.getAltura()) && (p.getPiso()==piso) && (p.getDepto()==depto) ){//Buscamos la publicacion
+                System.out.println("Coindice con el deseado");
                 if(p.getDueño()==dueño){//Verificamos que el usuario sea el dueño de la publicacion
                     lista.remove(i);
                     return true;
-                }else{
+                }else{//Este caso no deberia darse
+                    System.out.println("No concuerda con el dueño");
                     return false;
                 }
             }
         }
+        System.out.println("No se encontró ninguna coindicencia");
         return false; //la publicación no existe
-    }
+    }//TODO TAMBIEN DEBE MODIFICAR LA BD
 }

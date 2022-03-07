@@ -37,7 +37,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButtonBuscar = new javax.swing.JButton();
         jButtonCrear = new javax.swing.JButton();
-        jButtonEliminar = new javax.swing.JButton();
+        jButtonPublicaciones = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,19 +90,19 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 260, 30));
 
-        jButtonEliminar.setBackground(new java.awt.Color(0, 211, 153));
-        jButtonEliminar.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jButtonEliminar.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonEliminar.setText("Eliminar publicación");
-        jButtonEliminar.setBorder(null);
-        jButtonEliminar.setBorderPainted(false);
-        jButtonEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonPublicaciones.setBackground(new java.awt.Color(0, 211, 153));
+        jButtonPublicaciones.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jButtonPublicaciones.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonPublicaciones.setText("Mis publicaciones");
+        jButtonPublicaciones.setBorder(null);
+        jButtonPublicaciones.setBorderPainted(false);
+        jButtonPublicaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonPublicaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEliminarActionPerformed(evt);
+                jButtonPublicacionesActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 260, 30));
+        getContentPane().add(jButtonPublicaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 260, 30));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/fondo.png"))); // NOI18N
         jLabelFondo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 217, 153)));
@@ -127,11 +127,11 @@ public class Menu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButtonCrearActionPerformed
 
-    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
-        BorrarPublicacion siguiente = new BorrarPublicacion();
+    private void jButtonPublicacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPublicacionesActionPerformed
+        MisPublicaciones siguiente = new MisPublicaciones();
         siguiente.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButtonEliminarActionPerformed
+    }//GEN-LAST:event_jButtonPublicacionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,8 +178,8 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonCrear;
-    private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonExit;
+    private javax.swing.JButton jButtonPublicaciones;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelFondo;
     // End of variables declaration//GEN-END:variables

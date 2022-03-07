@@ -681,7 +681,7 @@ public class Busqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxFDuenioActionPerformed
 
     private void jButtonInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInfoActionPerformed
-        JOptionPane.showMessageDialog(null, "Marque el cuadrado de aquellos campos por los que desea filtrar, luego complete el/los campo/s.");
+        JOptionPane.showMessageDialog(null, "Tilde el cuadrado de aquellos campos por los que desea filtrar, luego complete el/los campo/s.");
     }//GEN-LAST:event_jButtonInfoActionPerformed
 
     /**

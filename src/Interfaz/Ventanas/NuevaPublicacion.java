@@ -43,6 +43,7 @@ public class NuevaPublicacion extends javax.swing.JFrame {
         jComboBoxZona = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldCalle = new javax.swing.JTextField();
+        jTextFieldAltura = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jTextFieldPrecio = new javax.swing.JTextField();
         jComboBoxPago = new javax.swing.JComboBox<>();
@@ -120,14 +121,26 @@ public class NuevaPublicacion extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
         jTextFieldCalle.setBackground(new java.awt.Color(0, 217, 153));
-        jTextFieldCalle.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTextFieldCalle.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jTextFieldCalle.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldCalle.setText("Nombre");
         jTextFieldCalle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCalleActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 340, -1));
+        getContentPane().add(jTextFieldCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 180, 30));
+
+        jTextFieldAltura.setBackground(new java.awt.Color(0, 217, 153));
+        jTextFieldAltura.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jTextFieldAltura.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldAltura.setText("Altura");
+        jTextFieldAltura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAlturaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextFieldAltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 140, 30));
 
         jLabel8.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 211, 153));
@@ -142,7 +155,7 @@ public class NuevaPublicacion extends javax.swing.JFrame {
                 jTextFieldPrecioActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 180, -1));
+        getContentPane().add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 180, 30));
 
         jComboBoxPago.setBackground(new java.awt.Color(0, 217, 153));
         jComboBoxPago.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
@@ -324,7 +337,7 @@ public class NuevaPublicacion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios (a excepcion de piso y departamento).");
         }else{
             String calle= jTextFieldCalle.getText().strip();
-            String altura = "-1"; //String altura= jTextFieldAltura.getText().strip(); TODO agregar caja para poner altura y leugo verificar que sea numerica
+            String altura= jTextFieldAltura.getText().strip();
             String precio= jTextFieldPrecio.getText().strip();
             String cantH= jTextFieldHabitaciones.getText().strip();
             String metros= jTextFieldMetrosCuadrados.getText().strip();
@@ -338,11 +351,10 @@ public class NuevaPublicacion extends javax.swing.JFrame {
                 depto="0";
             
             //Luego verificamos que los campos numericos solo contengan numeros
-            if(precio.matches("[+-]?\\d*(\\.\\d+)?") && cantH.matches("[+-]?\\d*(\\.\\d+)?") && metros.matches("[+-]?\\d*(\\.\\d+)?") && piso.matches("[+-]?\\d*(\\.\\d+)?") && depto.matches("[+-]?\\d*(\\.\\d+)?")){
+            if(precio.matches("[+-]?\\d*(\\.\\d+)?") && altura.matches("[+-]?\\d*(\\.\\d+)?") && cantH.matches("[+-]?\\d*(\\.\\d+)?") && metros.matches("[+-]?\\d*(\\.\\d+)?") && piso.matches("[+-]?\\d*(\\.\\d+)?") && depto.matches("[+-]?\\d*(\\.\\d+)?")){
                 boolean seAgrego = Publicaciones.agregar(0, jComboBoxTipo.getSelectedItem().toString(), jComboBoxZona.getSelectedItem().toString(), calle, Integer.valueOf(altura), Integer.valueOf(piso), Integer.valueOf(depto), Login.getDniUsuario(), jComboBoxPago.getSelectedItem().toString(), Integer.valueOf(precio), Integer.valueOf(cantH), Integer.valueOf(metros), jCheckBoxAmueblado.isSelected(), jCheckBoxPatio.isSelected(), jTextAreaDescripcion.getText());
 
-                if(seAgrego){//Verificar que no exista una publicacion con la misma calle depto piso
-                    //Si no existe entonces se guarda en la BD y vuelve al menu inicial
+                if(seAgrego){
                     JOptionPane.showMessageDialog(null, "La publicación se creó exitosamente.");
                     Menu anterior = new Menu();
                     anterior.setVisible(true);
@@ -402,6 +414,10 @@ public class NuevaPublicacion extends javax.swing.JFrame {
     private void jTextFieldPisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPisoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPisoActionPerformed
+
+    private void jTextFieldAlturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAlturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAlturaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -476,6 +492,7 @@ public class NuevaPublicacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaDescripcion;
+    private javax.swing.JTextField jTextFieldAltura;
     private javax.swing.JTextField jTextFieldCalle;
     private javax.swing.JTextField jTextFieldDepto;
     private javax.swing.JTextField jTextFieldHabitaciones;

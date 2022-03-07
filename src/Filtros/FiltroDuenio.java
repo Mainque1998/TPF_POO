@@ -7,16 +7,19 @@ import Sistema_Base.Publicacion;
  * @author Mainque
  */
 public class FiltroDuenio implements Filtro {
-    private String dueño;
-
-    //Constructor
-    public FiltroDuenio(String d) {
-        this.dueño = d;
+    private String nombreDueño;
+    private int dniDueño;
+    
+    //Constructores
+    public FiltroDuenio(String nombre) { //este filtro es usado por el buscador
+        this.nombreDueño = nombre;
+    }
+    public FiltroDuenio(int dni) { //este filtro es usado por la lista de "Mis publicaciones"
+        this.dniDueño = dni;
     }
     
     @Override
-    public boolean cumple(Publicacion p) {//TODO Comparar el nombre asociado al dni de la pub con el string dueño
-        return false;
-        //return (p.getDueño().getNombre().equals(dueño));
+    public boolean cumple(Publicacion p) {//TODO agregar la comparacion del nombre asociado al dni de la pub con el string dueño
+        return dniDueño== p.getDueño();
     }
 }

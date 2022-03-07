@@ -115,7 +115,7 @@ public class Publicacion {
         if(piso>0 || depto>0)
             piso_depto= ", piso " + piso + ", depto " + depto;
         
-        return tipo + " con pago " + pago + " de $" + precio + ", en zona " + zona + ", calle " + calle + altura + piso_depto + ", con " + cantHabitaciones + " habitaciones, " + metrosCuadrados + " metros cuadrados"+ patio + amueblado +". Descripcion extra: " + descripcion;
+        return tipo + " con pago " + pago + " de $" + precio + ", en zona " + zona + ", calle " + calle +" "+altura + piso_depto + ", con " + cantHabitaciones + " habitaciones, " + metrosCuadrados + " metros cuadrados"+ patio + amueblado +". Descripcion extra: " + descripcion;
     }
     
     
