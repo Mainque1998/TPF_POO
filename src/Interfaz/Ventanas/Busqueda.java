@@ -189,7 +189,7 @@ public class Busqueda extends javax.swing.JFrame {
 
         jComboBoxPago.setBackground(new java.awt.Color(0, 217, 153));
         jComboBoxPago.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBoxPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mensual", "Por día", "Por semana" }));
+        jComboBoxPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mensual", "Por día", "Por semana", "Único" }));
         jComboBoxPago.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jComboBoxPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
