@@ -1,6 +1,6 @@
 package Filtros;
 
-import Sistema_Base.Publicacion;
+import POJO.Publicacion;
 
 /**
  * Clase que extiende de Filtro para filtrar por un dueño en especifico
@@ -20,6 +20,6 @@ public class FiltroDuenio implements Filtro {
     
     @Override
     public boolean cumple(Publicacion p) {//TODO agregar la comparacion del nombre asociado al dni de la pub con el string dueño
-        return dniDueño== p.getDueño();
+        return dniDueño== p.getUsuario().getDni();
     }
 }

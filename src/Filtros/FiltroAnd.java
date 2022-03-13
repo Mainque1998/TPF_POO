@@ -1,6 +1,6 @@
 package Filtros;
 
-import Sistema_Base.Publicacion;
+import POJO.Publicacion;
 
 /**
  * Clase para lograr la composicion por and de dos filtros

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13 mar. 2022 14:21:56 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJO.Publicacion" table="PUBLICACION" catalog="sql10475586" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuario" class="POJO.Usuario" fetch="select">
+            <column name="duenio" not-null="true" />
+        </many-to-one>
+        <property name="tipo" type="string">
+            <column name="tipo" length="100" not-null="true" />
+        </property>
+        <property name="zona" type="string">
+            <column name="zona" length="100" not-null="true" />
+        </property>
+        <property name="calle" type="string">
+            <column name="calle" length="100" not-null="true" />
+        </property>
+        <property name="altura" type="int">
+            <column name="altura" not-null="true" />
+        </property>
+        <property name="piso" type="java.lang.Integer">
+            <column name="piso" />
+        </property>
+        <property name="depto" type="java.lang.Integer">
+            <column name="depto" />
+        </property>
+        <property name="pago" type="string">
+            <column name="pago" length="100" not-null="true" />
+        </property>
+        <property name="precio" type="int">
+            <column name="precio" not-null="true" />
+        </property>
+        <property name="cantHabitaciones" type="int">
+            <column name="cantHabitaciones" not-null="true" />
+        </property>
+        <property name="metrosCuadrados" type="int">
+            <column name="metrosCuadrados" not-null="true" />
+        </property>
+        <property name="esAmueblado" type="boolean">
+            <column name="esAmueblado" not-null="true" />
+        </property>
+        <property name="tienePatio" type="boolean">
+            <column name="tienePatio" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="65535" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

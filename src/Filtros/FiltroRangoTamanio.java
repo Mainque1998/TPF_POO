@@ -1,6 +1,6 @@
 package Filtros;
 
-import Sistema_Base.Publicacion;
+import POJO.Publicacion;
 
 /**
  * Clase que extiende de Filtro para filtrar por un rango de tamaño en metros cuadrados

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13 mar. 2022 14:21:56 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJO.Usuario" table="USUARIO" catalog="sql10475586" optimistic-lock="version">
+        <id name="dni" type="int">
+            <column name="dni" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="100" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="100" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="100" />
+        </property>
+        <property name="localidad" type="string">
+            <column name="localidad" length="100" not-null="true" />
+        </property>
+        <set name="publicacions" table="PUBLICACION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="duenio" not-null="true" />
+            </key>
+            <one-to-many class="POJO.Publicacion" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -5,7 +5,7 @@
 package Interfaz.Ventanas;
 
 import Filtros.*;
-import Sistema_Base.*;
+import POJO.*;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -573,7 +573,7 @@ public class Busqueda extends javax.swing.JFrame {
         //Creamos el filtro final y filtramos las publicaciones
         if(!errorNumero && !errorVacio && !filtros.isEmpty()){
             ArrayList<Publicacion> resultado = new ArrayList<Publicacion>();
-            Publicaciones listaP = new Publicaciones();
+            SistemaAplicacion listaP = new SistemaAplicacion();
             if(filtros.size()==1){
                 resultado= listaP.buscar(filtros.get(0));
             }else{//Tiene más de un filtro
