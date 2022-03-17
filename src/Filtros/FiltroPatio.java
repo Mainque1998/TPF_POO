@@ -1,6 +1,6 @@
 package Filtros;
 
-import POJO.Publicacion;
+import cl.pojos.Publicacion;
 
 /**
  * Clase que extiende de Filtro para filtrar por los que tienen o no patio
@@ -15,6 +15,6 @@ public class FiltroPatio implements Filtro {
 
     @Override
     public boolean cumple(Publicacion p) {
-        return (tienePatio==p.tienePatio());
+        return (tienePatio==p.isTienePatio());
     }
 }

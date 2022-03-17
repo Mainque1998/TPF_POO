@@ -4,11 +4,13 @@
  */
 package Interfaz.Ventanas;
 
+import cl.pojos.Publicacion;
+import cl.sistema.SistemaAplicacion;
 import Filtros.*;
-import POJO.*;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -23,7 +25,9 @@ public class Busqueda extends javax.swing.JFrame {
     public Busqueda() {
         initComponents();
         this.setLocationRelativeTo(null);
-        limpiarJList();
+        //Inicializo la vista con todas las publicaciones
+        SistemaAplicacion sistema = new SistemaAplicacion();
+        this.cargarJList(sistema.obtenerPublicaciones());
     }
 
     public Image getIconImage() {
@@ -480,7 +484,6 @@ public class Busqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jButtonFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFiltrarActionPerformed
-        limpiarJList();     
         //Primero creamos los filtros para cada opcion seleccionada y la agregamos a una lista de filtros
         ArrayList<Filtro> filtros = new ArrayList<Filtro>();
         boolean errorNumero = false; //Boleano para detectar que un campo numerico tiene otros caracteres
@@ -573,25 +576,29 @@ public class Busqueda extends javax.swing.JFrame {
         //Creamos el filtro final y filtramos las publicaciones
         if(!errorNumero && !errorVacio && !filtros.isEmpty()){
             ArrayList<Publicacion> resultado = new ArrayList<Publicacion>();
-            SistemaAplicacion listaP = new SistemaAplicacion();
+            SistemaAplicacion sistema = new SistemaAplicacion();
             if(filtros.size()==1){
-                resultado= listaP.buscar(filtros.get(0));
+                resultado= sistema.buscar(filtros.get(0));
             }else{//Tiene más de un filtro
                 FiltroAnd fAnd = new FiltroAnd(filtros.get(0), filtros.get(1));
                 for(int i=2; i<filtros.size(); i++){
                     fAnd = new FiltroAnd(fAnd, filtros.get(i));
                 }
-                resultado= listaP.buscar(fAnd);
+                resultado= sistema.buscar(fAnd);
             }
             //Cargamos el resultado en la lista
-            DefaultListModel modelo = (DefaultListModel) jListResult.getModel();
-            for(Publicacion p: resultado){
-                System.out.println(p.toString());//PRUEBA
-                modelo.addElement(p.toString());
-            }
+            this.cargarJList(resultado);
         }
     }//GEN-LAST:event_jButtonFiltrarActionPerformed
 
+    private DefaultListModel cargarJList(List<Publicacion> lista){
+        limpiarJList();
+        DefaultListModel modelo = (DefaultListModel) jListResult.getModel();
+        for(Publicacion p: lista)
+            modelo.addElement(p.toString());
+        return modelo;
+    }
+    
     private DefaultListModel limpiarJList(){
         DefaultListModel modelo = new DefaultListModel();
         jListResult.setModel(modelo);

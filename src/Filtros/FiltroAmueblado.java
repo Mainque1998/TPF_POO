@@ -1,6 +1,6 @@
 package Filtros;
 
-import POJO.Publicacion;
+import cl.pojos.Publicacion;
 
 /**
  * Clase que extiende de Filtro para filtrar por los amueblados o no amueblados
@@ -15,6 +15,6 @@ public class FiltroAmueblado implements Filtro {
 
     @Override
     public boolean cumple(Publicacion p) {
-        return (esAmueblado==p.esAmueblado());
+        return (esAmueblado==p.isEsAmueblado());
     }
 }

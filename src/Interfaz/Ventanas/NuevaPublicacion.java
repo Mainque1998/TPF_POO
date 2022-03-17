@@ -4,7 +4,9 @@
  */
 package Interfaz.Ventanas;
 
-import POJO.SistemaAplicacion;
+import cl.pojos.Publicacion;
+import cl.sistema.SistemaAplicacion;
+import cl.pojos.Usuario;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
@@ -352,7 +354,10 @@ public class NuevaPublicacion extends javax.swing.JFrame {
             
             //Luego verificamos que los campos numericos solo contengan numeros
             if(precio.matches("[+-]?\\d*(\\.\\d+)?") && altura.matches("[+-]?\\d*(\\.\\d+)?") && cantH.matches("[+-]?\\d*(\\.\\d+)?") && metros.matches("[+-]?\\d*(\\.\\d+)?") && piso.matches("[+-]?\\d*(\\.\\d+)?") && depto.matches("[+-]?\\d*(\\.\\d+)?")){
-                boolean seAgrego = SistemaAplicacion.agregar(jComboBoxTipo.getSelectedItem().toString(), jComboBoxZona.getSelectedItem().toString(), calle, Integer.valueOf(altura), Integer.valueOf(piso), Integer.valueOf(depto), Login.getDniUsuario(), jComboBoxPago.getSelectedItem().toString(), Integer.valueOf(precio), Integer.valueOf(cantH), Integer.valueOf(metros), jCheckBoxAmueblado.isSelected(), jCheckBoxPatio.isSelected(), jTextAreaDescripcion.getText());
+                //TODO CREAR OBJETO USUARIO RESPECTIVO AL USUARIO ACTUAL
+                Publicacion p = new Publicacion(new Usuario(), jComboBoxTipo.getSelectedItem().toString(), jComboBoxZona.getSelectedItem().toString(), calle, Integer.valueOf(altura), Integer.valueOf(piso), Integer.valueOf(depto), jComboBoxPago.getSelectedItem().toString(), Integer.valueOf(precio), Integer.valueOf(cantH), Integer.valueOf(metros), jCheckBoxAmueblado.isSelected(), jCheckBoxPatio.isSelected(), jTextAreaDescripcion.getText());
+                SistemaAplicacion sistema = new SistemaAplicacion();
+                boolean seAgrego = sistema.agregarPublicacion(p);
 
                 if(seAgrego){
                     JOptionPane.showMessageDialog(null, "La publicación se creó exitosamente.");

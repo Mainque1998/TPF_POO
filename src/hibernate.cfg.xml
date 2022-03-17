@@ -45,7 +45,8 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:mysql://sql10.freesqldatabase.com:3306/sql10475586?zeroDateTimeBehavior=CONVERT_TO_NULL</property>
     <property name="hibernate.connection.username">sql10475586</property>
     <property name="hibernate.connection.password">sEMRTxR1v6</property>
-    <mapping resource="POJO/Publicacion.hbm.xml"/>
-    <mapping resource="POJO/Usuario.hbm.xml"/>
+    <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+    <mapping class="" file="" jar="" package="" resource="cl/pojos/Publicacion.hbm.xml"/>
+    <mapping class="" file="" jar="" package="" resource="cl/pojos/Usuario.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

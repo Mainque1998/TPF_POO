@@ -4,8 +4,9 @@
  */
 package Interfaz.Ventanas;
 
+import cl.pojos.Publicacion;
+import cl.sistema.SistemaAplicacion;
 import Filtros.*;
-import POJO.*;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -179,7 +180,8 @@ public class MisPublicaciones extends javax.swing.JFrame {
         }
         System.out.println("Se intenta borrar la publicacion con calle="+calle+", piso="+piso+" y depto="+depto);//PRUEBA
         
-        boolean seElimino=SistemaAplicacion.eliminar(calle, piso, depto, Login.getDniUsuario());
+        SistemaAplicacion sistema = new SistemaAplicacion();
+        boolean seElimino= sistema.eliminarPublicacion(calle, piso, depto, Login.getDniUsuario());
         if(seElimino){
             JOptionPane.showMessageDialog(null, "Se eliminó la publicación correctamente.");
             cargarJList();
@@ -198,8 +200,8 @@ public class MisPublicaciones extends javax.swing.JFrame {
         limpiarJList();
         
         ArrayList<Publicacion> publicacionesDelUsuario = new ArrayList<Publicacion>();
-        SistemaAplicacion listaP = new SistemaAplicacion();
-        publicacionesDelUsuario = listaP.buscar(new FiltroDuenio(Login.getDniUsuario()));
+        SistemaAplicacion sistema = new SistemaAplicacion();
+        publicacionesDelUsuario = sistema.buscar(new FiltroDuenio(Login.getDniUsuario()));
         
         DefaultListModel modelo = (DefaultListModel) jListResult.getModel();
         for(Publicacion p: publicacionesDelUsuario){

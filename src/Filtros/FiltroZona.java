@@ -1,6 +1,6 @@
 package Filtros;
 
-import POJO.Publicacion;
+import cl.pojos.Publicacion;
 
 /**
  * Clase que extiende de Filtro para filtrar por una zona determinada

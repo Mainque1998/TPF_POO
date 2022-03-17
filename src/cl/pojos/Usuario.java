@@ -1,5 +1,5 @@
-package POJO;
-// Generated 13 mar. 2022 14:21:54 by Hibernate Tools 4.3.1
+package cl.pojos;
+// Generated 15 mar. 2022 19:19:46 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,6 +12,7 @@ public class Usuario  implements java.io.Serializable {
 
 
      private int dni;
+     private String password;
      private String nombre;
      private String email;
      private String telefono;
@@ -22,14 +23,17 @@ public class Usuario  implements java.io.Serializable {
     }
 
 	
-    public Usuario(int dni, String nombre, String email, String localidad) {
+    public Usuario(int dni, String password, String nombre, String email, String telefono, String localidad) {
         this.dni = dni;
+        this.password = password;
         this.nombre = nombre;
         this.email = email;
+        this.telefono = telefono;
         this.localidad = localidad;
     }
-    public Usuario(int dni, String nombre, String email, String telefono, String localidad, Set<Publicacion> publicacions) {
+    public Usuario(int dni, String password, String nombre, String email, String telefono, String localidad, Set<Publicacion> publicacions) {
        this.dni = dni;
+       this.password = password;
        this.nombre = nombre;
        this.email = email;
        this.telefono = telefono;
@@ -43,6 +47,13 @@ public class Usuario  implements java.io.Serializable {
     
     public void setDni(int dni) {
         this.dni = dni;
+    }
+    public String getPassword() {
+        return this.password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
     }
     public String getNombre() {
         return this.nombre;

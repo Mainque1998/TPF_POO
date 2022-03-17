@@ -4,6 +4,8 @@
  */
 package Interfaz.Ventanas;
 
+import cl.sistema.SistemaAplicacion;
+import cl.pojos.Usuario;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
@@ -219,8 +221,14 @@ public class NuevoUsuario extends javax.swing.JFrame {
                     String password = jPassword.getText();
                     if(password.length()>5){
                         String nombre = jTextFieldNombre.getText().strip();
-                        //TODO Verificar que no exista usuario con el DNI
-                        //Si no existe entonces se guarda en la BD y vuelve al menu inicial
+                        //Se procede a intengar agregar el usuario
+                        SistemaAplicacion sistema = new SistemaAplicacion();
+                        boolean seAgrego = sistema.agregarUsuario(new Usuario(Integer.valueOf(dni), password, nombre, email, telefono, jComboBoxLocalidad.getSelectedItem().toString()));//falta telefono
+                        if(seAgrego){
+                            JOptionPane.showMessageDialog(null, "Se creó la cuenta correctamente.");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Ya existe un usuario con este DNI.");
+                        }
                     }else{
                         JOptionPane.showMessageDialog(null, "La contraseña debe tener al menos 6 caracteres.");
                     }
@@ -230,7 +238,6 @@ public class NuevoUsuario extends javax.swing.JFrame {
             }else{
                 JOptionPane.showMessageDialog(null, "El DNI y el télefono solo pueden llevar números.");
             }
-            
         }
     }//GEN-LAST:event_jButtonCrearUsuarioActionPerformed
 
