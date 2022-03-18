@@ -75,7 +75,6 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
         jButtonExit.setBackground(new java.awt.Color(255, 0, 0));
         jButtonExit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButtonExit.setForeground(new java.awt.Color(0, 0, 0));
         jButtonExit.setText("Salir");
         jButtonExit.setBorder(null);
         jButtonExit.setBorderPainted(false);
@@ -94,8 +93,7 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
         jComboBoxTipo.setBackground(new java.awt.Color(0, 217, 153));
         jComboBoxTipo.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBoxTipo.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alquiler", "Venta", "Residencia" }));
+        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alquiler", "Venta", "Pensión" }));
         jComboBoxTipo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jComboBoxTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,8 +109,7 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
         jComboBoxZona.setBackground(new java.awt.Color(0, 217, 153));
         jComboBoxZona.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBoxZona.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBoxZona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Centro", "Semi-Centro", "Villa Italia", "Movediza" }));
+        jComboBoxZona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Centro", "Semi-Centro", "Barrio 25 de Mayo", "Barrio 17 de Agosto", "Barrio Arco Iris 1° etapa", "Barrio Arco Iris 2° etapa", "Barrio de las Ranas", "Barrio Eduardo Olivero", "Barrio El Calvario", "Barrio El Centinela", "Barrio Falucho 1", "Barrio Falucho 2", "Barrio Fatica", "Barrio Fonavi", "Barrio de Graduados", "Barrio General Belgrano", "Barrio Jardín", "Barrio La Movediza", "Barrio Maggiori", "Barrio Manantial", "Barrio Metalúrgico", "Barrio Militar", "Barrio Mirage", "Barrio Palermo", "Barrio Parque La Movediza", "Barrio Pro-Casa", "Barrio Rodríguez-Selvetti", "Barrio San Juan", "Barrio Sierra Sud", "Barrio Terminal", "Barrio Uncas", "Barrio Universitario", "Barrio Villa del Parque", "El Cerrito", "El Tropezón", "El Bolsón", "La Elena", "La Florida", "Las Tunitas", "Villa del Lago", "Villa Don Bosco", "Villa Galicia", "Villa Italia", "Villa Laza", "Villa Gaucho", "Villa Aguirre", "Cerro Leones", "Barrio A.T.E.P.A.M. I y II" }));
         jComboBoxZona.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jComboBoxZona, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 340, -1));
 
@@ -124,7 +121,6 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
         jTextFieldCalle.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldCalle.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jTextFieldCalle.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldCalle.setText("Nombre");
         jTextFieldCalle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +131,6 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
         jTextFieldAltura.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldAltura.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jTextFieldAltura.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldAltura.setText("Altura");
         jTextFieldAltura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +146,6 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
         jTextFieldPrecio.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldPrecio.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFieldPrecio.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPrecioActionPerformed(evt);
@@ -161,7 +155,6 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
         jComboBoxPago.setBackground(new java.awt.Color(0, 217, 153));
         jComboBoxPago.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBoxPago.setForeground(new java.awt.Color(0, 0, 0));
         jComboBoxPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mensual", "Por día", "Por semana", "Único" }));
         jComboBoxPago.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jComboBoxPago.addActionListener(new java.awt.event.ActionListener() {
@@ -179,7 +172,7 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
         jTextFieldPiso.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldPiso.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFieldPiso.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldPiso.setText("0");
         jTextFieldPiso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPisoActionPerformed(evt);
@@ -194,7 +187,7 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
         jTextFieldDepto.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldDepto.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFieldDepto.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldDepto.setText("0");
         jTextFieldDepto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDeptoActionPerformed(evt);
@@ -209,7 +202,6 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
         jTextFieldHabitaciones.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldHabitaciones.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldHabitaciones.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldHabitaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldHabitacionesActionPerformed(evt);
@@ -224,7 +216,6 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
         jTextFieldMetrosCuadrados.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldMetrosCuadrados.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldMetrosCuadrados.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldMetrosCuadrados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldMetrosCuadradosActionPerformed(evt);
@@ -234,12 +225,11 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 211, 153));
-        jLabel5.setText("Es amueblado?");
+        jLabel5.setText("¿Es amueblado?");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, -1, -1));
 
         jCheckBoxAmueblado.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxAmueblado.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jCheckBoxAmueblado.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBoxAmueblado.setAlignmentY(0.0F);
         jCheckBoxAmueblado.setBorder(null);
         jCheckBoxAmueblado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -257,12 +247,11 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 211, 153));
-        jLabel9.setText("Tiene patio?");
+        jLabel9.setText("¿Tiene patio?");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
 
         jCheckBoxPatio.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxPatio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jCheckBoxPatio.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBoxPatio.setAlignmentY(0.0F);
         jCheckBoxPatio.setBorder(null);
         jCheckBoxPatio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -286,7 +275,6 @@ public class NuevaPublicacion extends javax.swing.JFrame {
         jTextAreaDescripcion.setBackground(new java.awt.Color(0, 211, 153));
         jTextAreaDescripcion.setColumns(20);
         jTextAreaDescripcion.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jTextAreaDescripcion.setForeground(new java.awt.Color(0, 0, 0));
         jTextAreaDescripcion.setLineWrap(true);
         jTextAreaDescripcion.setRows(5);
         jScrollPane1.setViewportView(jTextAreaDescripcion);
@@ -295,7 +283,6 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
         jButtonCrear.setBackground(new java.awt.Color(0, 217, 153));
         jButtonCrear.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jButtonCrear.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCrear.setText("Crear publicación");
         jButtonCrear.setBorder(null);
         jButtonCrear.setBorderPainted(false);
@@ -309,7 +296,6 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
         jButtonAtras.setBackground(new java.awt.Color(0, 217, 153));
         jButtonAtras.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButtonAtras.setForeground(new java.awt.Color(0, 0, 0));
         jButtonAtras.setText("Atras");
         jButtonAtras.setBorder(null);
         jButtonAtras.setBorderPainted(false);
@@ -361,8 +347,8 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
                 if(seAgrego){
                     JOptionPane.showMessageDialog(null, "La publicación se creó exitosamente.");
-                    Menu anterior = new Menu();
-                    anterior.setVisible(true);
+                    MisPublicaciones siguiente = new MisPublicaciones();
+                    siguiente.setVisible(true);
                     this.setVisible(false);
                 }else{
                     JOptionPane.showMessageDialog(null, "Ya existe una publicación con la misma calle, piso y depto.");

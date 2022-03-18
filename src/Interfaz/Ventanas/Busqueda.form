@@ -83,7 +83,7 @@
           <StringArray count="3">
             <StringItem index="0" value="Alquiler"/>
             <StringItem index="1" value="Venta"/>
-            <StringItem index="2" value="Residencia"/>
+            <StringItem index="2" value="Pensi&#xf3;n"/>
           </StringArray>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -134,7 +134,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="40" height="30"/>
+          <AbsoluteConstraints x="20" y="10" width="10" height="10"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -186,7 +186,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="60" width="40" height="20"/>
+          <AbsoluteConstraints x="20" y="70" width="10" height="10"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -260,7 +260,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="140" width="40" height="30"/>
+          <AbsoluteConstraints x="20" y="150" width="10" height="10"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -347,7 +347,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="170" width="40" height="30"/>
+          <AbsoluteConstraints x="20" y="180" width="10" height="10"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -360,11 +360,55 @@
           <Font name="Arial" size="16" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
+          <StringArray count="48">
             <StringItem index="0" value="Centro"/>
             <StringItem index="1" value="Semi-Centro"/>
-            <StringItem index="2" value="Villa Italia"/>
-            <StringItem index="3" value="Movediza"/>
+            <StringItem index="2" value="Barrio 25 de Mayo"/>
+            <StringItem index="3" value="Barrio 17 de Agosto"/>
+            <StringItem index="4" value="Barrio Arco Iris 1&#xb0; etapa"/>
+            <StringItem index="5" value="Barrio Arco Iris 2&#xb0; etapa"/>
+            <StringItem index="6" value="Barrio de las Ranas"/>
+            <StringItem index="7" value="Barrio Eduardo Olivero"/>
+            <StringItem index="8" value="Barrio El Calvario"/>
+            <StringItem index="9" value="Barrio El Centinela"/>
+            <StringItem index="10" value="Barrio Falucho 1"/>
+            <StringItem index="11" value="Barrio Falucho 2"/>
+            <StringItem index="12" value="Barrio Fatica"/>
+            <StringItem index="13" value="Barrio Fonavi"/>
+            <StringItem index="14" value="Barrio de Graduados"/>
+            <StringItem index="15" value="Barrio General Belgrano"/>
+            <StringItem index="16" value="Barrio Jard&#xed;n"/>
+            <StringItem index="17" value="Barrio La Movediza"/>
+            <StringItem index="18" value="Barrio Maggiori"/>
+            <StringItem index="19" value="Barrio Manantial"/>
+            <StringItem index="20" value="Barrio Metal&#xfa;rgico"/>
+            <StringItem index="21" value="Barrio Militar"/>
+            <StringItem index="22" value="Barrio Mirage"/>
+            <StringItem index="23" value="Barrio Palermo"/>
+            <StringItem index="24" value="Barrio Parque La Movediza"/>
+            <StringItem index="25" value="Barrio Pro-Casa"/>
+            <StringItem index="26" value="Barrio Rodr&#xed;guez-Selvetti"/>
+            <StringItem index="27" value="Barrio San Juan"/>
+            <StringItem index="28" value="Barrio Sierra Sud"/>
+            <StringItem index="29" value="Barrio Terminal"/>
+            <StringItem index="30" value="Barrio Uncas"/>
+            <StringItem index="31" value="Barrio Universitario"/>
+            <StringItem index="32" value="Barrio Villa del Parque"/>
+            <StringItem index="33" value="El Cerrito"/>
+            <StringItem index="34" value="El Tropez&#xf3;n"/>
+            <StringItem index="35" value="El Bols&#xf3;n"/>
+            <StringItem index="36" value="La Elena"/>
+            <StringItem index="37" value="La Florida"/>
+            <StringItem index="38" value="Las Tunitas"/>
+            <StringItem index="39" value="Villa del Lago"/>
+            <StringItem index="40" value="Villa Don Bosco"/>
+            <StringItem index="41" value="Villa Galicia"/>
+            <StringItem index="42" value="Villa Italia"/>
+            <StringItem index="43" value="Villa Laza"/>
+            <StringItem index="44" value="Villa Gaucho"/>
+            <StringItem index="45" value="Villa Aguirre"/>
+            <StringItem index="46" value="Cerro Leones"/>
+            <StringItem index="47" value="Barrio A.T.E.P.A.M. I y II"/>
           </StringArray>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -392,7 +436,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="40" y="240" width="-1" height="20"/>
+          <AbsoluteConstraints x="40" y="240" width="-1" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -428,7 +472,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="240" width="40" height="20"/>
+          <AbsoluteConstraints x="20" y="250" width="10" height="10"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -498,7 +542,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="270" width="40" height="30"/>
+          <AbsoluteConstraints x="20" y="280" width="10" height="10"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -548,11 +592,11 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="d3" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Tiene patio?"/>
+        <Property name="text" type="java.lang.String" value="&#xbf;Tiene patio?"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="40" y="336" width="-1" height="30"/>
+          <AbsoluteConstraints x="40" y="326" width="-1" height="40"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -588,7 +632,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="340" width="40" height="20"/>
+          <AbsoluteConstraints x="20" y="340" width="10" height="10"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -624,7 +668,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="190" y="340" width="30" height="20"/>
+          <AbsoluteConstraints x="210" y="340" width="10" height="10"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -636,11 +680,11 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="d3" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Es amueblado?"/>
+        <Property name="text" type="java.lang.String" value="&#xbf;Es amueblado?"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="40" y="370" width="-1" height="20"/>
+          <AbsoluteConstraints x="40" y="360" width="-1" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -676,7 +720,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="370" width="40" height="20"/>
+          <AbsoluteConstraints x="20" y="370" width="10" height="10"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -712,7 +756,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="190" y="370" width="30" height="20"/>
+          <AbsoluteConstraints x="210" y="370" width="10" height="10"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -765,7 +809,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="390" width="40" height="30"/>
+          <AbsoluteConstraints x="20" y="400" width="10" height="10"/>
         </Constraint>
       </Constraints>
     </Component>

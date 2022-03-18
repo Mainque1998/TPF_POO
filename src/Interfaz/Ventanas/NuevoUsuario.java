@@ -61,7 +61,6 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         jButtonExit.setBackground(new java.awt.Color(255, 0, 0));
         jButtonExit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButtonExit.setForeground(new java.awt.Color(0, 0, 0));
         jButtonExit.setText("Salir");
         jButtonExit.setBorder(null);
         jButtonExit.setBorderPainted(false);
@@ -86,7 +85,6 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         jTextFieldDNI.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldDNI.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFieldDNI.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldDNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,13 +95,11 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         jPassword.setBackground(new java.awt.Color(0, 217, 153));
         jPassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jPassword.setForeground(new java.awt.Color(0, 0, 0));
         jPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 330, -1));
 
         jTextFieldNombre.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldNombre.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFieldNombre.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,7 +115,6 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         jTextFieldEmail.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldEmail.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFieldEmail.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +130,6 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         jTextFieldTelefono.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldTelefono.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFieldTelefono.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldTelefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,15 +150,13 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         jComboBoxLocalidad.setBackground(new java.awt.Color(0, 217, 153));
         jComboBoxLocalidad.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBoxLocalidad.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBoxLocalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tandil", "Olavarría", "Balcarce", "Mar Del Plata" }));
+        jComboBoxLocalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tandil", "Olavarría", "Mar Del Plata", "Tres Arroyos", "Capital federal", "Otra" }));
         jComboBoxLocalidad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jComboBoxLocalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 270, -1));
         jComboBoxLocalidad.getAccessibleContext().setAccessibleName("");
 
         jButtonCrearUsuario.setBackground(new java.awt.Color(0, 217, 153));
         jButtonCrearUsuario.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jButtonCrearUsuario.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCrearUsuario.setText("Crear usuario");
         jButtonCrearUsuario.setBorder(null);
         jButtonCrearUsuario.setBorderPainted(false);
@@ -178,7 +170,6 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         jButtonAtras.setBackground(new java.awt.Color(0, 217, 153));
         jButtonAtras.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButtonAtras.setForeground(new java.awt.Color(0, 0, 0));
         jButtonAtras.setText("Atras");
         jButtonAtras.setBorder(null);
         jButtonAtras.setBorderPainted(false);

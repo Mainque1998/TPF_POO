@@ -5,8 +5,8 @@
         <group>
             <file>file:/C:/Users/Mainque/Documents/NetBeansProjects/TPF_POO/src/hibernate.reveng.xml</file>
             <file>file:/C:/Users/Mainque/Documents/NetBeansProjects/TPF_POO/src/cl/sistema/SistemaAplicacion.java</file>
+            <file>file:/C:/Users/Mainque/Documents/NetBeansProjects/TPF_POO/src/Interfaz/Ventanas/Login.java</file>
             <file>file:/C:/Users/Mainque/Documents/NetBeansProjects/TPF_POO/src/hibernate.cfg.xml</file>
-            <file>file:/C:/Users/Mainque/Documents/NetBeansProjects/TPF_POO/src/Interfaz/Ventanas/MisPublicaciones.java</file>
             <file>file:/C:/Users/Mainque/Documents/NetBeansProjects/TPF_POO/src/cl/util/HibernateUtil.java</file>
         </group>
     </open-files>

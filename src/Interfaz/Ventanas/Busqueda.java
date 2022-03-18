@@ -106,7 +106,7 @@ public class Busqueda extends javax.swing.JFrame {
 
         jComboBoxTipo.setBackground(new java.awt.Color(0, 217, 153));
         jComboBoxTipo.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alquiler", "Venta", "Residencia" }));
+        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alquiler", "Venta", "Pensión" }));
         jComboBoxTipo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jComboBoxTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,7 +130,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFTipoActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 30));
+        getContentPane().add(jCheckBoxFTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 10, 10));
 
         jLabel8.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 211, 153));
@@ -152,7 +152,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFPrecioActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 40, 20));
+        getContentPane().add(jCheckBoxFPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 10, 10));
 
         jTextFieldPrecioMin.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldPrecioMin.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -189,7 +189,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFPagoActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 40, 30));
+        getContentPane().add(jCheckBoxFPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 10, 10));
 
         jComboBoxPago.setBackground(new java.awt.Color(0, 217, 153));
         jComboBoxPago.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
@@ -223,18 +223,18 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFZonaActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFZona, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 40, 30));
+        getContentPane().add(jCheckBoxFZona, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 10, 10));
 
         jComboBoxZona.setBackground(new java.awt.Color(0, 217, 153));
         jComboBoxZona.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBoxZona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Centro", "Semi-Centro", "Villa Italia", "Movediza" }));
+        jComboBoxZona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Centro", "Semi-Centro", "Barrio 25 de Mayo", "Barrio 17 de Agosto", "Barrio Arco Iris 1° etapa", "Barrio Arco Iris 2° etapa", "Barrio de las Ranas", "Barrio Eduardo Olivero", "Barrio El Calvario", "Barrio El Centinela", "Barrio Falucho 1", "Barrio Falucho 2", "Barrio Fatica", "Barrio Fonavi", "Barrio de Graduados", "Barrio General Belgrano", "Barrio Jardín", "Barrio La Movediza", "Barrio Maggiori", "Barrio Manantial", "Barrio Metalúrgico", "Barrio Militar", "Barrio Mirage", "Barrio Palermo", "Barrio Parque La Movediza", "Barrio Pro-Casa", "Barrio Rodríguez-Selvetti", "Barrio San Juan", "Barrio Sierra Sud", "Barrio Terminal", "Barrio Uncas", "Barrio Universitario", "Barrio Villa del Parque", "El Cerrito", "El Tropezón", "El Bolsón", "La Elena", "La Florida", "Las Tunitas", "Villa del Lago", "Villa Don Bosco", "Villa Galicia", "Villa Italia", "Villa Laza", "Villa Gaucho", "Villa Aguirre", "Cerro Leones", "Barrio A.T.E.P.A.M. I y II" }));
         jComboBoxZona.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jComboBoxZona, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 180, -1));
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 211, 153));
         jLabel10.setText("Habitaciones");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, 20));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, 30));
 
         jCheckBoxFHabitaciones.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxFHabitaciones.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -251,7 +251,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFHabitacionesActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFHabitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 40, 20));
+        getContentPane().add(jCheckBoxFHabitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 10, 10));
 
         jTextFieldHabitaciones.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldHabitaciones.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -282,7 +282,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFMetrosActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFMetros, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 40, 30));
+        getContentPane().add(jCheckBoxFMetros, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 10, 10));
 
         jTextFieldMetrosMin.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldMetrosMin.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -306,8 +306,8 @@ public class Busqueda extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 211, 153));
-        jLabel9.setText("Tiene patio?");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 336, -1, 30));
+        jLabel9.setText("¿Tiene patio?");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 326, -1, 40));
 
         jCheckBoxFPatio.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxFPatio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -324,7 +324,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFPatioActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFPatio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 40, 20));
+        getContentPane().add(jCheckBoxFPatio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 10, 10));
 
         jCheckBoxPatio.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxPatio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -341,12 +341,12 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxPatioActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxPatio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 30, 20));
+        getContentPane().add(jCheckBoxPatio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 10, 10));
 
         jLabel5.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 211, 153));
-        jLabel5.setText("Es amueblado?");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, 20));
+        jLabel5.setText("¿Es amueblado?");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, 30));
 
         jCheckBoxFAmueblado.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxFAmueblado.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -363,7 +363,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFAmuebladoActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFAmueblado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 40, 20));
+        getContentPane().add(jCheckBoxFAmueblado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 10, 10));
 
         jCheckBoxAmueblado.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxAmueblado.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -380,7 +380,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxAmuebladoActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxAmueblado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 30, 20));
+        getContentPane().add(jCheckBoxAmueblado, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 10, 10));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 211, 153));
@@ -403,7 +403,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFDuenioActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFDuenio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 40, 30));
+        getContentPane().add(jCheckBoxFDuenio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 10, 10));
 
         jTextFieldDuenio.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldDuenio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N

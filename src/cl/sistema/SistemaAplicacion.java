@@ -63,7 +63,7 @@ public class SistemaAplicacion {
     }
     
     //Metodo para eliminar una publicacion dado una calle, piso y depto y el usuario propietario (si lo hace correctamente devuelve true)
-    public boolean eliminarPublicacion(String calle, int piso, int depto, int dueño){
+    public boolean eliminarPublicacion(String calle, int piso, int depto, String dueño){
         List<Publicacion> lista = this.buscar(new FiltroDuenio(dueño));
         for(int i=0; i<lista.size(); i++){
             Publicacion p= lista.get(i);
@@ -89,14 +89,18 @@ public class SistemaAplicacion {
         return lista;
     }
     
-    //Metodo para devolver un usuario o null si no existe, usado por Login
+    //Metodo para devolver un usuario o null si no existe o la contraseña es incorrecta (usado por Login)
     public Usuario getUsuario(int dni, String password){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session ses = sf.openSession();
-        return (Usuario) ses.createQuery("from Usuario where dni= :dni").setParameter("dni", dni).uniqueResult();
+        Usuario u = (Usuario) ses.createQuery("from Usuario where dni= :dni").setParameter("dni", dni).uniqueResult();
+        if(u != null)//Si existe un usuario con el dni
+            if(u.getPassword().equals(password))
+                return null;//si la contraseña es incorrecta devuelve null
+        return u;//Si no existia un usuario con el dni entonces es null, en caso contrario la contraseña era correcta y devuelve el usuario
     }
     
-    //Metodo para agregar un usuario a la BD, usado por NuevoUsuario
+    //Metodo para agregar un usuario a la BD (usado por NuevoUsuario)
     public boolean agregarUsuario(Usuario u){
         List<Usuario> lista = this.obtenerUsuarios();
         //Verificamos que no exista en la lista
