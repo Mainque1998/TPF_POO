@@ -4,6 +4,7 @@
  */
 package Interfaz.Ventanas;
 
+import cl.pojos.Usuario;
 import cl.sistema.SistemaAplicacion;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -14,7 +15,7 @@ import javax.swing.JOptionPane;
  * @author Mainque
  */
 public class Login extends javax.swing.JFrame {
-    private static int dniUsuario = 0;
+    private static Usuario usuario = null;
     
     // Constructor
     public Login() {
@@ -27,8 +28,8 @@ public class Login extends javax.swing.JFrame {
         return retValue;
     }
     
-    public static int getDniUsuario() {
-        return dniUsuario;
+    public static Usuario getUsuarioActual() {
+        return usuario;
     }
     
     /**
@@ -147,8 +148,9 @@ public class Login extends javax.swing.JFrame {
         int dni = Integer.valueOf(jTextFieldUsuario.getText().strip());
         String password = jPassword.getPassword().toString();
         SistemaAplicacion sistema = new SistemaAplicacion();
-        if(sistema.existeUsuario(dni, password)){//Consultar a la BD si existe el usuario con el DNI y la contraseña
-            this.dniUsuario = dni;
+        Usuario actual = sistema.getUsuario(dni, password);
+        if(actual!=null){//Consultar a la BD si existe el usuario con el DNI y la contraseña
+            this.usuario = actual;
             Menu menu = new Menu();
             menu.setVisible(true);
             this.setVisible(false);

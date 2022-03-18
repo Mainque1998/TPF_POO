@@ -81,13 +81,37 @@ public class SistemaAplicacion {
         return false; //la publicación no existe
     }
     
-    //Metodo para saber si existe un usuario, usado por Login
-    public boolean existeUsuario(int dni, String password){
-        return true;
+    //Metodo para obtener la lista de publicaciones de la BD
+    public List<Usuario> obtenerUsuarios(){
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session ses = sf.openSession();
+        List<Usuario> lista = ses.createQuery("from Usuario").list();
+        return lista;
+    }
+    
+    //Metodo para devolver un usuario o null si no existe, usado por Login
+    public Usuario getUsuario(int dni, String password){
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session ses = sf.openSession();
+        return (Usuario) ses.createQuery("from Usuario where dni= :dni").setParameter("dni", dni).uniqueResult();
     }
     
     //Metodo para agregar un usuario a la BD, usado por NuevoUsuario
     public boolean agregarUsuario(Usuario u){
+        List<Usuario> lista = this.obtenerUsuarios();
+        //Verificamos que no exista en la lista
+        boolean existe = false;
+        for(Usuario ui: lista){
+            existe= (u.getDni()==ui.getDni());
+            if(existe)
+                return false;
+        }
+        //La agregamos
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session ses = sf.openSession();
+        Transaction tx = ses.beginTransaction();
+        ses.save(u);
+        tx.commit();
         return true;
     }
 }

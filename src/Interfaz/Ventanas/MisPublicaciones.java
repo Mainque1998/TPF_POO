@@ -181,7 +181,7 @@ public class MisPublicaciones extends javax.swing.JFrame {
         System.out.println("Se intenta borrar la publicacion con calle="+calle+", piso="+piso+" y depto="+depto);//PRUEBA
         
         SistemaAplicacion sistema = new SistemaAplicacion();
-        boolean seElimino= sistema.eliminarPublicacion(calle, piso, depto, Login.getDniUsuario());
+        boolean seElimino= sistema.eliminarPublicacion(calle, piso, depto, Login.getUsuarioActual().getDni());
         if(seElimino){
             JOptionPane.showMessageDialog(null, "Se eliminó la publicación correctamente.");
             cargarJList();
@@ -201,7 +201,7 @@ public class MisPublicaciones extends javax.swing.JFrame {
         
         ArrayList<Publicacion> publicacionesDelUsuario = new ArrayList<Publicacion>();
         SistemaAplicacion sistema = new SistemaAplicacion();
-        publicacionesDelUsuario = sistema.buscar(new FiltroDuenio(Login.getDniUsuario()));
+        publicacionesDelUsuario = sistema.buscar(new FiltroDuenio(Login.getUsuarioActual().getDni()));
         
         DefaultListModel modelo = (DefaultListModel) jListResult.getModel();
         for(Publicacion p: publicacionesDelUsuario){
