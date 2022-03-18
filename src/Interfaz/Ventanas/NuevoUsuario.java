@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 
 /**
- *
+ * Clase para la interfaz de creación de usuario
  * @author Mainque
  */
 public class NuevoUsuario extends javax.swing.JFrame {

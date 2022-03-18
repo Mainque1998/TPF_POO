@@ -63,17 +63,15 @@ public class SistemaAplicacion {
     }
     
     //Metodo para eliminar una publicacion dado una calle, piso y depto y el usuario propietario (si lo hace correctamente devuelve true)
-    public boolean eliminarPublicacion(String calle, int piso, int depto, String dueño){
-        List<Publicacion> lista = this.buscar(new FiltroDuenio(dueño));
+    public boolean eliminarPublicacion(String calle, int piso, int depto, String duenio){
+        List<Publicacion> lista = this.buscar(new FiltroDuenio(duenio));
         for(int i=0; i<lista.size(); i++){
             Publicacion p= lista.get(i);
-            System.out.println(p.getCalle() +" "+ p.getAltura());
-            System.out.println(p.getPiso());
-            System.out.println(p.getDepto());
             if( calle.equals(p.getCalle() +" "+ p.getAltura()) && (p.getPiso()==piso) && (p.getDepto()==depto) ){//Buscamos la publicacion
-                System.out.println("Coindice con el deseado");
-                //REMOVER DE LA BD
-                lista.remove(i);
+                SessionFactory sf = HibernateUtil.getSessionFactory();
+                Session ses = sf.openSession();
+                ses.delete(p);
+                ses.beginTransaction().commit();
                 return true;
             }
         }

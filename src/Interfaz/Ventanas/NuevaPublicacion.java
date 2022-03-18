@@ -13,12 +13,11 @@ import javax.swing.JOptionPane;
 
 
 /**
- *
+ * Clase para la interfaz de creación de nueva publicación
  * @author Mainque
  */
 public class NuevaPublicacion extends javax.swing.JFrame {
     
-    //constructor
     public NuevaPublicacion() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -340,7 +339,6 @@ public class NuevaPublicacion extends javax.swing.JFrame {
             
             //Luego verificamos que los campos numericos solo contengan numeros
             if(precio.matches("[+-]?\\d*(\\.\\d+)?") && altura.matches("[+-]?\\d*(\\.\\d+)?") && cantH.matches("[+-]?\\d*(\\.\\d+)?") && metros.matches("[+-]?\\d*(\\.\\d+)?") && piso.matches("[+-]?\\d*(\\.\\d+)?") && depto.matches("[+-]?\\d*(\\.\\d+)?")){
-                //TODO CREAR OBJETO USUARIO RESPECTIVO AL USUARIO ACTUAL
                 Publicacion p = new Publicacion(Login.getUsuarioActual(), jComboBoxTipo.getSelectedItem().toString(), jComboBoxZona.getSelectedItem().toString(), calle, Integer.valueOf(altura), Integer.valueOf(piso), Integer.valueOf(depto), jComboBoxPago.getSelectedItem().toString(), Integer.valueOf(precio), Integer.valueOf(cantH), Integer.valueOf(metros), jCheckBoxAmueblado.isSelected(), jCheckBoxPatio.isSelected(), jTextAreaDescripcion.getText());
                 SistemaAplicacion sistema = new SistemaAplicacion();
                 boolean seAgrego = sistema.agregarPublicacion(p);

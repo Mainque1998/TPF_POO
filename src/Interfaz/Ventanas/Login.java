@@ -11,13 +11,12 @@ import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Clase para la interfaz de log in de la aplicación
  * @author Mainque
  */
 public class Login extends javax.swing.JFrame {
-    private static Usuario usuario = null;
+    private static Usuario usuario = null;//Usado por las otras interfaces para conocer al usuario actual de la aplicación
     
-    // Constructor
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -149,12 +148,12 @@ public class Login extends javax.swing.JFrame {
         String password = jPassword.getPassword().toString();
         SistemaAplicacion sistema = new SistemaAplicacion();
         Usuario actual = sistema.getUsuario(dni, password);
-        if(actual!=null){//Consultar a la BD si existe el usuario con el DNI y la contraseña
+        if(actual!=null){
             this.usuario = actual;
             Menu menu = new Menu();
             menu.setVisible(true);
             this.setVisible(false);
-        }else{
+        }else{//Puede ser null si el usuario no existe o sí existe pero la contraseña es otra
             JOptionPane.showMessageDialog(null, "El DNI y/o la contraseña son incorrectos");
         }
     }//GEN-LAST:event_jButtonIngresarActionPerformed

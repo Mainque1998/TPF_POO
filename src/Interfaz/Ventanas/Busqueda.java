@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 
 /**
- *
+ * Clase para la interfaz de filtrado de la aplicación
  * @author Mainque
  */
 public class Busqueda extends javax.swing.JFrame {

@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 
 /**
- *
+ * Clase para la interfaz de vista de las publicaciones del usuario actual (en esta misma puede eliminar las publicaciones que desee)
  * @author Mainque
  */
 public class MisPublicaciones extends javax.swing.JFrame {
@@ -218,7 +218,7 @@ public class MisPublicaciones extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAtrasActionPerformed
 
     private void jButtonInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInfoActionPerformed
-        JOptionPane.showMessageDialog(null, "Tilde el cuadrado de aquellos campos por los que desea filtrar, luego complete el/los campo/s.");
+        JOptionPane.showMessageDialog(null, "Si desea eliminar una publicación, primero seleccionela y luego apriete el boton.");
     }//GEN-LAST:event_jButtonInfoActionPerformed
 
     private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
