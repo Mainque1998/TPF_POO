@@ -12,13 +12,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 /**
- * Clase contenedora de las publicaciones del sistema
+ * Clase que se encarga de la administración del sistema, interactuando con las interfaces y la BD
  * @author Mainque
  */
 public class SistemaAplicacion {
-    //private static ArrayList<Publicacion> lista = new ArrayList<Publicacion>();
-
-    //Constructor
+    
     public SistemaAplicacion() {
     }
     
@@ -72,7 +70,7 @@ public class SistemaAplicacion {
                 Session ses = sf.openSession();
                 ses.delete(p);
                 ses.beginTransaction().commit();
-                return true;
+                return true;//Encontramos y borramos la publicación
             }
         }
         System.out.println("No se encontró ninguna coindicencia");
@@ -108,7 +106,7 @@ public class SistemaAplicacion {
             if(existe)
                 return false;
         }
-        //La agregamos
+        //Lo agregamos
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session ses = sf.openSession();
         Transaction tx = ses.beginTransaction();
