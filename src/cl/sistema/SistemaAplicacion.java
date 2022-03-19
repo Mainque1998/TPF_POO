@@ -60,12 +60,12 @@ public class SistemaAplicacion {
         return true;
     }
     
-    //Metodo para eliminar una publicacion dado una calle, piso y depto y el usuario propietario (si lo hace correctamente devuelve true)
-    public boolean eliminarPublicacion(String calle, int piso, int depto, String duenio){
-        List<Publicacion> lista = this.buscar(new FiltroDuenio(duenio));
-        for(int i=0; i<lista.size(); i++){
-            Publicacion p= lista.get(i);
-            if( calle.equals(p.getCalle() +" "+ p.getAltura()) && (p.getPiso()==piso) && (p.getDepto()==depto) ){//Buscamos la publicacion
+    //Metodo para eliminar una publicacion
+    public boolean eliminarPublicacion(Publicacion p, Usuario u){
+        List<Publicacion> lista = this.buscar(new FiltroDuenio(u.getNombre()));
+        for(Publicacion pi: lista){
+            //Verificamos que exista la publicacion (En un contexto sin errores siempre existe la publicacion a borrar)
+            if( p.getId().equals(pi.getId()) ){
                 SessionFactory sf = HibernateUtil.getSessionFactory();
                 Session ses = sf.openSession();
                 ses.delete(p);
@@ -73,8 +73,8 @@ public class SistemaAplicacion {
                 return true;//Encontramos y borramos la publicación
             }
         }
-        System.out.println("No se encontró ninguna coindicencia");
-        return false; //la publicación no existe
+        
+        return false; //la publicación no existe (esto no debería ocurrir en un contexto sin errores)
     }
     
     //Metodo para obtener la lista de publicaciones de la BD

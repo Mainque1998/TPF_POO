@@ -19,12 +19,11 @@ import javax.swing.JOptionPane;
  * @author Mainque
  */
 public class MisPublicaciones extends javax.swing.JFrame {
+    private ArrayList<Publicacion> publicacionesDelUsuario;//Lista usada para mapear los strings de la lista con las publicaciones respectivas
     
-    //constructor
     public MisPublicaciones() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
         cargarJList();
     }
 
@@ -153,60 +152,45 @@ public class MisPublicaciones extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
-        //Obtener los datos de la publicacion seleccionada
-        String seleccionado = jListResult.getSelectedValue();
-        
-        //Para obtener los datos del string tengamos en cuenta su composicion:
-        //...", calle " + calle + altura + piso_depto + ", con "...
-        //piso_depto= ", piso " + piso + ", depto " + depto;
-        //
-        //Con esto podemos ir calculando los indices de los strings necesitados
-        
-        int iniCalle = seleccionado.indexOf(", calle ")+8;
-        int finCalle = seleccionado.indexOf(',', iniCalle);
-        String calle = seleccionado.substring(iniCalle, finCalle);
-        
-        int piso = 0;
-        int depto = 0;
-        
-        int iniPiso = finCalle+2;
-        if(seleccionado.charAt(iniPiso)=='p'){//Si no es así, entonces piso y depto son 0 por default
-            iniPiso += 5;
-            int finPiso = seleccionado.indexOf(',', iniPiso);
-            piso = Integer.valueOf(seleccionado.substring(iniPiso, finPiso));
-            int iniDepto = finPiso+8;
-            int finDepto = seleccionado.indexOf(',', iniDepto);
-            depto = Integer.valueOf(seleccionado.substring(iniDepto, finDepto));
-        }
-        System.out.println("Se intenta borrar la publicacion con calle="+calle+", piso="+piso+" y depto="+depto);//PRUEBA
+        Publicacion p = this.publicacionesDelUsuario.get(jListResult.getSelectedIndex());//Obtengo la publicación seleccionada
         
         SistemaAplicacion sistema = new SistemaAplicacion();
-        boolean seElimino= sistema.eliminarPublicacion(calle, piso, depto, Login.getUsuarioActual().getNombre());
+        boolean seElimino= sistema.eliminarPublicacion(p, Login.getUsuarioActual());
         if(seElimino){
             JOptionPane.showMessageDialog(null, "Se eliminó la publicación correctamente.");
             cargarJList();
         }else{
-            JOptionPane.showMessageDialog(null, "No se logró eliminar la publicación.");//Teoricamente no debería ocurrir este caso
+            JOptionPane.showMessageDialog(null, "No se logró eliminar la publicación.");
+            //Nunca se da este caso en un contexto sin errores
         }
     }//GEN-LAST:event_jButtonBorrarActionPerformed
 
+    //Limpia tanto la lista visual como el atributo contenedor
     private DefaultListModel limpiarJList(){
+        this.publicacionesDelUsuario = new ArrayList<Publicacion>();
         DefaultListModel modelo = new DefaultListModel();
         jListResult.setModel(modelo);
         return modelo;
     }
     
+    //Carga tanto la lista visual como el atributo contenedor
     private DefaultListModel cargarJList(){
         limpiarJList();
         
-        ArrayList<Publicacion> publicacionesDelUsuario = new ArrayList<Publicacion>();
         SistemaAplicacion sistema = new SistemaAplicacion();
-        publicacionesDelUsuario = sistema.buscar(new FiltroDuenio(Login.getUsuarioActual().getNombre()));
+        this.publicacionesDelUsuario = sistema.buscar(new FiltroDuenio(Login.getUsuarioActual().getNombre()));
         
         DefaultListModel modelo = (DefaultListModel) jListResult.getModel();
+        String piso;
+        String depto;
         for(Publicacion p: publicacionesDelUsuario){
-            System.out.println(p.toString());//PRUEBA
-            modelo.addElement(p.toString());
+            piso = "";
+            if(p.getPiso()>0)
+                piso = ", piso " + String.valueOf(p.getPiso());
+            depto = "";
+            if(p.getDepto()>0)
+                depto = ", depto " + String.valueOf(p.getDepto());
+            modelo.addElement(p.toString() + piso + depto);//Añado a la lista
         }
         return modelo;
     }
