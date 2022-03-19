@@ -10,7 +10,6 @@ import Filtros.*;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -20,14 +19,16 @@ import javax.swing.JOptionPane;
  * @author Mainque
  */
 public class Busqueda extends javax.swing.JFrame {
+    private ArrayList<Publicacion> publicaciones;//Lista usada para mapear los strings de la lista con las publicaciones respectivas
     
-    //constructor
     public Busqueda() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
         //Inicializo la vista con todas las publicaciones
         SistemaAplicacion sistema = new SistemaAplicacion();
-        this.cargarJList(sistema.obtenerPublicaciones());
+        this.publicaciones = new ArrayList<Publicacion>(sistema.obtenerPublicaciones());
+        this.cargarJList();
     }
 
     public Image getIconImage() {
@@ -575,30 +576,31 @@ public class Busqueda extends javax.swing.JFrame {
         
         //Creamos el filtro final y filtramos las publicaciones
         if(!errorNumero && !errorVacio && !filtros.isEmpty()){
-            ArrayList<Publicacion> resultado = new ArrayList<Publicacion>();
             SistemaAplicacion sistema = new SistemaAplicacion();
             if(filtros.size()==1){
-                resultado= sistema.buscar(filtros.get(0));
+                this.publicaciones= sistema.buscar(filtros.get(0));
             }else{//Tiene más de un filtro
                 FiltroAnd fAnd = new FiltroAnd(filtros.get(0), filtros.get(1));
                 for(int i=2; i<filtros.size(); i++){
                     fAnd = new FiltroAnd(fAnd, filtros.get(i));
                 }
-                resultado= sistema.buscar(fAnd);
+                this.publicaciones= sistema.buscar(fAnd);
             }
             //Cargamos el resultado en la lista
-            this.cargarJList(resultado);
+            this.cargarJList();
         }
     }//GEN-LAST:event_jButtonFiltrarActionPerformed
 
-    private DefaultListModel cargarJList(List<Publicacion> lista){
+    //Carga la lista visual basandose en el atributo respectivo (publicaciones)
+    private DefaultListModel cargarJList(){
         limpiarJList();
         DefaultListModel modelo = (DefaultListModel) jListResult.getModel();
-        for(Publicacion p: lista)
+        for(Publicacion p: this.publicaciones)
             modelo.addElement(p.toString());
         return modelo;
     }
     
+    //Limpia la lista visual
     private DefaultListModel limpiarJList(){
         DefaultListModel modelo = new DefaultListModel();
         jListResult.setModel(modelo);

@@ -168,7 +168,7 @@ public class Publicacion  implements java.io.Serializable {
 
     @Override
     public String toString() {
-        return tipo + " con pago " + pago + " de $" + precio + ", calle " + calle +" "+altura;
+        return tipo + " con pago " + pago + " de $" + precio + ", en " + calle +" "+altura;
     }
 
 
