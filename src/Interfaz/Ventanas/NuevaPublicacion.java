@@ -64,7 +64,8 @@ public class NuevaPublicacion extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaDescripcion = new javax.swing.JTextArea();
         jButtonCrear = new javax.swing.JButton();
-        jButtonAtras = new javax.swing.JButton();
+        jButtonMenu = new javax.swing.JButton();
+        jButtonMisPublicaciones = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -273,16 +274,16 @@ public class NuevaPublicacion extends javax.swing.JFrame {
 
         jTextAreaDescripcion.setBackground(new java.awt.Color(0, 211, 153));
         jTextAreaDescripcion.setColumns(20);
-        jTextAreaDescripcion.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jTextAreaDescripcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextAreaDescripcion.setLineWrap(true);
         jTextAreaDescripcion.setRows(5);
         jScrollPane1.setViewportView(jTextAreaDescripcion);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 400, 110));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 410, 110));
 
         jButtonCrear.setBackground(new java.awt.Color(0, 217, 153));
-        jButtonCrear.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jButtonCrear.setText("Crear publicación");
+        jButtonCrear.setFont(new java.awt.Font("Arial", 1, 30)); // NOI18N
+        jButtonCrear.setText("Crear");
         jButtonCrear.setBorder(null);
         jButtonCrear.setBorderPainted(false);
         jButtonCrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -291,20 +292,33 @@ public class NuevaPublicacion extends javax.swing.JFrame {
                 jButtonCrearActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 180, 30));
+        getContentPane().add(jButtonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 450, 120, 40));
 
-        jButtonAtras.setBackground(new java.awt.Color(0, 217, 153));
-        jButtonAtras.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButtonAtras.setText("Menú");
-        jButtonAtras.setBorder(null);
-        jButtonAtras.setBorderPainted(false);
-        jButtonAtras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
+        jButtonMenu.setBackground(new java.awt.Color(0, 217, 153));
+        jButtonMenu.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButtonMenu.setText("Menú inicial");
+        jButtonMenu.setBorder(null);
+        jButtonMenu.setBorderPainted(false);
+        jButtonMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAtrasActionPerformed(evt);
+                jButtonMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 50, 20));
+        getContentPane().add(jButtonMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 120, 20));
+
+        jButtonMisPublicaciones.setBackground(new java.awt.Color(0, 217, 153));
+        jButtonMisPublicaciones.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButtonMisPublicaciones.setText("MisPublicaciones");
+        jButtonMisPublicaciones.setBorder(null);
+        jButtonMisPublicaciones.setBorderPainted(false);
+        jButtonMisPublicaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonMisPublicaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMisPublicacionesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonMisPublicaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, 130, 20));
 
         jLabelFondo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/fondo.png"))); // NOI18N
@@ -364,11 +378,11 @@ public class NuevaPublicacion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonCrearActionPerformed
 
-    private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
+    private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
         Menu anterior = new Menu();
         anterior.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButtonAtrasActionPerformed
+    }//GEN-LAST:event_jButtonMenuActionPerformed
 
     private void jTextFieldPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrecioActionPerformed
         // TODO add your handling code here:
@@ -413,6 +427,12 @@ public class NuevaPublicacion extends javax.swing.JFrame {
     private void jTextFieldAlturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAlturaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldAlturaActionPerformed
+
+    private void jButtonMisPublicacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMisPublicacionesActionPerformed
+        MisPublicaciones m = new MisPublicaciones();
+        m.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonMisPublicacionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -465,9 +485,10 @@ public class NuevaPublicacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAtras;
     private javax.swing.JButton jButtonCrear;
     private javax.swing.JButton jButtonExit;
+    private javax.swing.JButton jButtonMenu;
+    private javax.swing.JButton jButtonMisPublicaciones;
     private javax.swing.JCheckBox jCheckBoxAmueblado;
     private javax.swing.JCheckBox jCheckBoxPatio;
     private javax.swing.JComboBox<String> jComboBoxPago;

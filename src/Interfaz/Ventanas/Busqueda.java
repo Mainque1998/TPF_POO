@@ -76,8 +76,9 @@ public class Busqueda extends javax.swing.JFrame {
         jTextFieldDuenio = new javax.swing.JTextField();
         jButtonFiltrar = new javax.swing.JButton();
         jButtonInfo = new javax.swing.JButton();
-        jButtonAtras = new javax.swing.JButton();
+        jButtonMenu = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jButtonVerMas = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jListResult = new javax.swing.JList<>();
         jLabelFondo = new javax.swing.JLabel();
@@ -98,7 +99,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jButtonExitActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 60, 20));
+        getContentPane().add(jButtonExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 10, 60, 20));
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 211, 153));
@@ -416,7 +417,7 @@ public class Busqueda extends javax.swing.JFrame {
         getContentPane().add(jTextFieldDuenio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 180, -1));
 
         jButtonFiltrar.setBackground(new java.awt.Color(0, 217, 153));
-        jButtonFiltrar.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jButtonFiltrar.setFont(new java.awt.Font("Arial", 1, 28)); // NOI18N
         jButtonFiltrar.setText("Filtrar");
         jButtonFiltrar.setBorder(null);
         jButtonFiltrar.setBorderPainted(false);
@@ -426,7 +427,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jButtonFiltrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 90, 30));
+        getContentPane().add(jButtonFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, 110, 30));
 
         jButtonInfo.setBackground(new java.awt.Color(0, 217, 153));
         jButtonInfo.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
@@ -439,26 +440,39 @@ public class Busqueda extends javax.swing.JFrame {
                 jButtonInfoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 466, 30, -1));
+        getContentPane().add(jButtonInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 460, 30, 30));
 
-        jButtonAtras.setBackground(new java.awt.Color(0, 217, 153));
-        jButtonAtras.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButtonAtras.setText("Atras");
-        jButtonAtras.setBorder(null);
-        jButtonAtras.setBorderPainted(false);
-        jButtonAtras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
+        jButtonMenu.setBackground(new java.awt.Color(0, 217, 153));
+        jButtonMenu.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButtonMenu.setText("Menú");
+        jButtonMenu.setBorder(null);
+        jButtonMenu.setBorderPainted(false);
+        jButtonMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAtrasActionPerformed(evt);
+                jButtonMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 40, 20));
+        getContentPane().add(jButtonMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 50, 20));
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 211, 153));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Resultados");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 250, 30));
+
+        jButtonVerMas.setBackground(new java.awt.Color(0, 217, 153));
+        jButtonVerMas.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jButtonVerMas.setText("0");
+        jButtonVerMas.setBorder(null);
+        jButtonVerMas.setBorderPainted(false);
+        jButtonVerMas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonVerMas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVerMasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonVerMas, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 40, 30));
 
         jListResult.setBackground(new java.awt.Color(0, 217, 153));
         jListResult.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -470,12 +484,12 @@ public class Busqueda extends javax.swing.JFrame {
         jListResult.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jListResult);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 720, 450));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 560, 400));
 
         jLabelFondo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/fondo.png"))); // NOI18N
         jLabelFondo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 217, 153)));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 500));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -607,11 +621,11 @@ public class Busqueda extends javax.swing.JFrame {
         return modelo;
     }
     
-    private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
+    private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
         Menu anterior = new Menu();
         anterior.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButtonAtrasActionPerformed
+    }//GEN-LAST:event_jButtonMenuActionPerformed
 
     private void jTextFieldPrecioMaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrecioMaxActionPerformed
         // TODO add your handling code here:
@@ -690,8 +704,22 @@ public class Busqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxFDuenioActionPerformed
 
     private void jButtonInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInfoActionPerformed
-        JOptionPane.showMessageDialog(null, "Tilde el cuadrado de aquellos campos por los que desea filtrar, luego complete el/los campo/s.");
+        JOptionPane.showMessageDialog(null, "Tilde el cuadrado de aquellos campos por los que desea filtrar,\nluego complete el/los campo/s."
+                                      +"\n"+"Para ver más sobre una publicación use el botón de la lupa.");
     }//GEN-LAST:event_jButtonInfoActionPerformed
+
+    private void jButtonVerMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerMasActionPerformed
+        int seleccionado = jListResult.getSelectedIndex();
+        if(seleccionado!=-1){
+            Publicacion p = this.publicaciones.get(seleccionado);//Obtengo la publicación seleccionada
+            PublicacionDetallada pd = new PublicacionDetallada();
+            pd.setPublicacion(p);
+            pd.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe seleccionar la publicación a mostrar."
+                                          +"\n"+"    (Use el botón ? para saber más)");
+        }
+    }//GEN-LAST:event_jButtonVerMasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -760,10 +788,11 @@ public class Busqueda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAtras;
     private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonFiltrar;
     private javax.swing.JButton jButtonInfo;
+    private javax.swing.JButton jButtonMenu;
+    private javax.swing.JButton jButtonVerMas;
     private javax.swing.JCheckBox jCheckBoxAmueblado;
     private javax.swing.JCheckBox jCheckBoxFAmueblado;
     private javax.swing.JCheckBox jCheckBoxFDuenio;

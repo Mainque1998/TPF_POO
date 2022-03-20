@@ -40,14 +40,17 @@ public class PublicacionDetallada extends javax.swing.JFrame {
         jTextFieldZona.setText(p.getZona());
         jTextFieldCalle.setText(p.getCalle());
         jTextFieldPago.setText(p.getPago());
-        if(p.isEsAmueblado())
+        jTextAreaDescripcion.setText(p.getDescripcion());
+        if(p.isEsAmueblado()){
             jTextFieldAmueblado.setText("Sí");
-        else
+        }else{
             jTextFieldAmueblado.setText("No");
-        if(p.isTienePatio())
-            jTextFieldAmueblado.setText("Sí");
-        else
-            jTextFieldAmueblado.setText("No");
+        }
+        if(p.isTienePatio()){
+            jTextFieldPatio.setText("Sí");
+        }else{
+            jTextFieldPatio.setText("No");
+        }
         //Dueño
         jTextFieldCNombre.setText(p.getUsuario().getNombre());
         jTextFieldEmail.setText(p.getUsuario().getEmail());
@@ -96,6 +99,7 @@ public class PublicacionDetallada extends javax.swing.JFrame {
         jTextFieldEmail = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jTextFieldTelefono = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -114,7 +118,7 @@ public class PublicacionDetallada extends javax.swing.JFrame {
                 jButtonExitActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 60, 20));
+        getContentPane().add(jButtonExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 60, 20));
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 211, 153));
@@ -236,7 +240,7 @@ public class PublicacionDetallada extends javax.swing.JFrame {
 
         jTextFieldHabitaciones.setEditable(false);
         jTextFieldHabitaciones.setBackground(new java.awt.Color(0, 217, 153));
-        jTextFieldHabitaciones.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldHabitaciones.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jTextFieldHabitaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldHabitacionesActionPerformed(evt);
@@ -251,7 +255,7 @@ public class PublicacionDetallada extends javax.swing.JFrame {
 
         jTextFieldMetrosCuadrados.setEditable(false);
         jTextFieldMetrosCuadrados.setBackground(new java.awt.Color(0, 217, 153));
-        jTextFieldMetrosCuadrados.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldMetrosCuadrados.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jTextFieldMetrosCuadrados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldMetrosCuadradosActionPerformed(evt);
@@ -297,22 +301,22 @@ public class PublicacionDetallada extends javax.swing.JFrame {
         jTextAreaDescripcion.setEditable(false);
         jTextAreaDescripcion.setBackground(new java.awt.Color(0, 211, 153));
         jTextAreaDescripcion.setColumns(20);
-        jTextAreaDescripcion.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        jTextAreaDescripcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextAreaDescripcion.setLineWrap(true);
         jTextAreaDescripcion.setRows(5);
         jScrollPane1.setViewportView(jTextAreaDescripcion);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 410, 160));
 
-        jLabel12.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Arial Black", 1, 44)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 211, 153));
         jLabel12.setText("Contacto");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, 50));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, -1, 60));
 
         jLabel13.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 211, 153));
         jLabel13.setText("Nombre");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, -1, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, -1, -1));
 
         jTextFieldCNombre.setEditable(false);
         jTextFieldCNombre.setBackground(new java.awt.Color(0, 217, 153));
@@ -323,12 +327,12 @@ public class PublicacionDetallada extends javax.swing.JFrame {
                 jTextFieldCNombreActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldCNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 380, 30));
+        getContentPane().add(jTextFieldCNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, 280, 30));
 
         jLabel14.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 211, 153));
         jLabel14.setText("Email");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 150, -1, -1));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, -1, -1));
 
         jTextFieldEmail.setEditable(false);
         jTextFieldEmail.setBackground(new java.awt.Color(0, 217, 153));
@@ -339,12 +343,12 @@ public class PublicacionDetallada extends javax.swing.JFrame {
                 jTextFieldEmailActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, 380, 30));
+        getContentPane().add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 280, 30));
 
         jLabel15.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 211, 153));
         jLabel15.setText(" Teléfono");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, 110, -1));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 110, -1));
 
         jTextFieldTelefono.setEditable(false);
         jTextFieldTelefono.setBackground(new java.awt.Color(0, 217, 153));
@@ -355,12 +359,15 @@ public class PublicacionDetallada extends javax.swing.JFrame {
                 jTextFieldTelefonoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, 380, 30));
+        getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 460, 280, 30));
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/img_login.png"))); // NOI18N
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, -1, -1));
 
         jLabelFondo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/fondo.png"))); // NOI18N
         jLabelFondo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 217, 153)));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 515));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 515));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -504,6 +511,7 @@ public class PublicacionDetallada extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

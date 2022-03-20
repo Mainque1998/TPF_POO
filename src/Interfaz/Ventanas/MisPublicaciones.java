@@ -42,10 +42,11 @@ public class MisPublicaciones extends javax.swing.JFrame {
     private void initComponents() {
 
         jButtonExit = new javax.swing.JButton();
-        jButtonBorrar = new javax.swing.JButton();
+        jButtonVerMas = new javax.swing.JButton();
         jButtonAgregar = new javax.swing.JButton();
+        jButtonBorrar = new javax.swing.JButton();
         jButtonInfo = new javax.swing.JButton();
-        jButtonAtras = new javax.swing.JButton();
+        jButtonMenu = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jListResult = new javax.swing.JList<>();
@@ -67,24 +68,24 @@ public class MisPublicaciones extends javax.swing.JFrame {
                 jButtonExitActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, 60, 20));
+        getContentPane().add(jButtonExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, 60, 20));
 
-        jButtonBorrar.setBackground(new java.awt.Color(0, 217, 153));
-        jButtonBorrar.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jButtonBorrar.setText("Eliminar seleccionada");
-        jButtonBorrar.setBorder(null);
-        jButtonBorrar.setBorderPainted(false);
-        jButtonBorrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonBorrar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonVerMas.setBackground(new java.awt.Color(0, 217, 153));
+        jButtonVerMas.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        jButtonVerMas.setText("0");
+        jButtonVerMas.setBorder(null);
+        jButtonVerMas.setBorderPainted(false);
+        jButtonVerMas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonVerMas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBorrarActionPerformed(evt);
+                jButtonVerMasActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, 230, 40));
+        getContentPane().add(jButtonVerMas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 40, 30));
 
         jButtonAgregar.setBackground(new java.awt.Color(0, 217, 153));
-        jButtonAgregar.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jButtonAgregar.setText("Agregar nueva");
+        jButtonAgregar.setFont(new java.awt.Font("Arial", 1, 32)); // NOI18N
+        jButtonAgregar.setText("+");
         jButtonAgregar.setBorder(null);
         jButtonAgregar.setBorderPainted(false);
         jButtonAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -93,7 +94,20 @@ public class MisPublicaciones extends javax.swing.JFrame {
                 jButtonAgregarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 230, 40));
+        getContentPane().add(jButtonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 40, 30));
+
+        jButtonBorrar.setBackground(new java.awt.Color(0, 217, 153));
+        jButtonBorrar.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        jButtonBorrar.setText("-");
+        jButtonBorrar.setBorder(null);
+        jButtonBorrar.setBorderPainted(false);
+        jButtonBorrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBorrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 40, 30));
 
         jButtonInfo.setBackground(new java.awt.Color(0, 217, 153));
         jButtonInfo.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
@@ -106,20 +120,20 @@ public class MisPublicaciones extends javax.swing.JFrame {
                 jButtonInfoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 460, 40, 30));
+        getContentPane().add(jButtonInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, 40, 30));
 
-        jButtonAtras.setBackground(new java.awt.Color(0, 217, 153));
-        jButtonAtras.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButtonAtras.setText("Atras");
-        jButtonAtras.setBorder(null);
-        jButtonAtras.setBorderPainted(false);
-        jButtonAtras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
+        jButtonMenu.setBackground(new java.awt.Color(0, 217, 153));
+        jButtonMenu.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButtonMenu.setText("Menú");
+        jButtonMenu.setBorder(null);
+        jButtonMenu.setBorderPainted(false);
+        jButtonMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAtrasActionPerformed(evt);
+                jButtonMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 40, 20));
+        getContentPane().add(jButtonMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 60, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 211, 153));
@@ -137,12 +151,12 @@ public class MisPublicaciones extends javax.swing.JFrame {
         jListResult.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jListResult);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 720, 370));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 610, 400));
 
         jLabelFondo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/fondo.png"))); // NOI18N
         jLabelFondo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 217, 153)));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 500));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -152,16 +166,22 @@ public class MisPublicaciones extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
-        Publicacion p = this.publicacionesDelUsuario.get(jListResult.getSelectedIndex());//Obtengo la publicación seleccionada
-        
-        SistemaAplicacion sistema = new SistemaAplicacion();
-        boolean seElimino= sistema.eliminarPublicacion(p, Login.getUsuarioActual());
-        if(seElimino){
-            JOptionPane.showMessageDialog(null, "Se eliminó la publicación correctamente.");
-            cargarJList();
+        int seleccionado = jListResult.getSelectedIndex();
+        if(seleccionado!=-1){
+            Publicacion p = this.publicacionesDelUsuario.get(seleccionado);//Obtengo la publicación seleccionada
+
+            SistemaAplicacion sistema = new SistemaAplicacion();
+            boolean seElimino= sistema.eliminarPublicacion(p, Login.getUsuarioActual());
+            if(seElimino){
+                JOptionPane.showMessageDialog(null, "Se eliminó la publicación correctamente.");
+                cargarJList();
+            }else{
+                JOptionPane.showMessageDialog(null, "No se logró eliminar la publicación.");
+                //Nunca se da este caso en un contexto sin errores
+            }
         }else{
-            JOptionPane.showMessageDialog(null, "No se logró eliminar la publicación.");
-            //Nunca se da este caso en un contexto sin errores
+            JOptionPane.showMessageDialog(null, "Debe seleccionar la publicación a eliminar."
+                                          +"\n"+"     (Use el botón ? para saber más)");
         }
     }//GEN-LAST:event_jButtonBorrarActionPerformed
 
@@ -195,14 +215,16 @@ public class MisPublicaciones extends javax.swing.JFrame {
         return modelo;
     }
     
-    private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
+    private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
         Menu anterior = new Menu();
         anterior.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButtonAtrasActionPerformed
+    }//GEN-LAST:event_jButtonMenuActionPerformed
 
     private void jButtonInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInfoActionPerformed
-        JOptionPane.showMessageDialog(null, "Si desea eliminar una publicación, primero seleccionela y luego apriete el boton.");
+        JOptionPane.showMessageDialog(null, "La lupa sirve para ver más sobre la publicación seleccionada, "
+                                     +"\n"+ "El botón + permite añadir una nueva publicacion, "
+                                     +"\n"+ "El botón - permite borrar la publicación seleccionada");
     }//GEN-LAST:event_jButtonInfoActionPerformed
 
     private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
@@ -210,6 +232,19 @@ public class MisPublicaciones extends javax.swing.JFrame {
         siguiente.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonAgregarActionPerformed
+
+    private void jButtonVerMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerMasActionPerformed
+        int seleccionado = jListResult.getSelectedIndex();
+        if(seleccionado!=-1){
+            Publicacion p = this.publicacionesDelUsuario.get(seleccionado);//Obtengo la publicación seleccionada
+            PublicacionDetallada pd = new PublicacionDetallada();
+            pd.setPublicacion(p);
+            pd.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe seleccionar la publicación a mostrar."
+                                          +"\n"+"    (Use el botón ? para saber más)");
+        }
+    }//GEN-LAST:event_jButtonVerMasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,10 +346,11 @@ public class MisPublicaciones extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgregar;
-    private javax.swing.JButton jButtonAtras;
     private javax.swing.JButton jButtonBorrar;
     private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonInfo;
+    private javax.swing.JButton jButtonMenu;
+    private javax.swing.JButton jButtonVerMas;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JList<String> jListResult;
