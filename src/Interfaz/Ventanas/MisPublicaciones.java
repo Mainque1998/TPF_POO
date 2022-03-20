@@ -72,7 +72,7 @@ public class MisPublicaciones extends javax.swing.JFrame {
 
         jButtonVerMas.setBackground(new java.awt.Color(0, 217, 153));
         jButtonVerMas.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
-        jButtonVerMas.setText("0");
+        jButtonVerMas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/icono v2.png"))); // NOI18N
         jButtonVerMas.setBorder(null);
         jButtonVerMas.setBorderPainted(false);
         jButtonVerMas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -156,7 +156,7 @@ public class MisPublicaciones extends javax.swing.JFrame {
         jLabelFondo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/fondo.png"))); // NOI18N
         jLabelFondo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 217, 153)));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 500));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

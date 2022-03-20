@@ -463,7 +463,7 @@ public class Busqueda extends javax.swing.JFrame {
 
         jButtonVerMas.setBackground(new java.awt.Color(0, 217, 153));
         jButtonVerMas.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jButtonVerMas.setText("0");
+        jButtonVerMas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/icono v2.png"))); // NOI18N
         jButtonVerMas.setBorder(null);
         jButtonVerMas.setBorderPainted(false);
         jButtonVerMas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
