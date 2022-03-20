@@ -57,7 +57,6 @@ public class Login extends javax.swing.JFrame {
 
         jButtonExit.setBackground(new java.awt.Color(255, 0, 0));
         jButtonExit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButtonExit.setForeground(new java.awt.Color(0, 0, 0));
         jButtonExit.setText("Salir");
         jButtonExit.setBorder(null);
         jButtonExit.setBorderPainted(false);
@@ -74,7 +73,6 @@ public class Login extends javax.swing.JFrame {
 
         jButtonCrearUsuario.setBackground(new java.awt.Color(0, 211, 153));
         jButtonCrearUsuario.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jButtonCrearUsuario.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCrearUsuario.setText("Crear usuario");
         jButtonCrearUsuario.setBorder(null);
         jButtonCrearUsuario.setBorderPainted(false);
@@ -88,7 +86,6 @@ public class Login extends javax.swing.JFrame {
 
         jButtonIngresar.setBackground(new java.awt.Color(0, 211, 153));
         jButtonIngresar.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jButtonIngresar.setForeground(new java.awt.Color(0, 0, 0));
         jButtonIngresar.setText("Ingresar");
         jButtonIngresar.setBorder(null);
         jButtonIngresar.setBorderPainted(false);
@@ -113,7 +110,6 @@ public class Login extends javax.swing.JFrame {
 
         jTextFieldUsuario.setBackground(new java.awt.Color(0, 211, 153));
         jTextFieldUsuario.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFieldUsuario.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +120,6 @@ public class Login extends javax.swing.JFrame {
 
         jPassword.setBackground(new java.awt.Color(0, 211, 153));
         jPassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jPassword.setForeground(new java.awt.Color(0, 0, 0));
         jPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 260, -1));
 
@@ -144,10 +139,16 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
 
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
+        PantallaCarga pCarga = new PantallaCarga();//
+        pCarga.setVisible(true);//Inicia la pantalla de carga
+        
         int dni = Integer.valueOf(jTextFieldUsuario.getText().strip());
         String password = jPassword.getPassword().toString();
         SistemaAplicacion sistema = new SistemaAplicacion();
         Usuario actual = sistema.getUsuario(dni, password);
+        
+        pCarga.setVisible(false);//Termina la pantalla de carga
+        
         if(actual!=null){
             this.usuario = actual;
             Menu menu = new Menu();
