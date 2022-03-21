@@ -143,7 +143,7 @@ public class Login extends javax.swing.JFrame {
         pCarga.setVisible(true);//Inicia la pantalla de carga
         
         int dni = Integer.valueOf(jTextFieldUsuario.getText().strip());
-        String password = jPassword.getPassword().toString();
+        String password = String.valueOf(jPassword.getPassword());
         SistemaAplicacion sistema = new SistemaAplicacion();
         Usuario actual = sistema.getUsuario(dni, password);
         

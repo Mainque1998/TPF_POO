@@ -89,11 +89,18 @@ public class SistemaAplicacion {
     public Usuario getUsuario(int dni, String password){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session ses = sf.openSession();
-        Usuario u = (Usuario) ses.createQuery("from Usuario where dni= :dni").setParameter("dni", dni).uniqueResult();
-        if(u != null)//Si existe un usuario con el dni
-            if(u.getPassword().equals(password))
+        Object result = ses.createQuery("from Usuario where dni= :dni").setParameter("dni", dni).uniqueResult();
+        
+        if(result != null){//Si existe un usuario con el dni
+            Usuario u = (Usuario) result;
+            //System.out.println("Ingresar con: dni= "+u.getDni()+", pass= "+u.getPassword());
+            //System.out.println("Quiere ingresar con: dni= "+dni+", pass= "+password);
+            if(!u.getPassword().equals(password))
                 return null;//si la contraseña es incorrecta devuelve null
-        return u;//Si no existia un usuario con el dni entonces es null, en caso contrario la contraseña era correcta y devuelve el usuario
+            else
+                return u;
+        }
+        return null;//Si no existia un usuario con el dni entonces es null
     }
     
     //Metodo para agregar un usuario a la BD (usado por NuevoUsuario)
