@@ -8,7 +8,8 @@ import java.awt.Image;
 import java.awt.Toolkit;
 
 /**
- * Clase para la interfaz de log in de la aplicación
+ * ESTA CLASE NO ESTA EN USO (Queda la clase para un futuro)
+ * Clase para para tener una pantalla de carga durante las consultas a la BD
  * @author Mainque
  */
 public class PantallaCarga extends javax.swing.JFrame {

@@ -28,7 +28,7 @@ public class Busqueda extends javax.swing.JFrame {
         //Inicializo la vista con todas las publicaciones
         SistemaAplicacion sistema = new SistemaAplicacion();
         this.publicaciones = new ArrayList<Publicacion>(sistema.obtenerPublicaciones());
-        this.cargarJList();
+        this.cargarJList(false);
     }
 
     public Image getIconImage() {
@@ -159,6 +159,9 @@ public class Busqueda extends javax.swing.JFrame {
         jTextFieldPrecioMin.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldPrecioMin.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jTextFieldPrecioMin.setText("Min");
+        jTextFieldPrecioMin.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldPrecioMin.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldPrecioMin.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldPrecioMin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPrecioMinActionPerformed(evt);
@@ -169,6 +172,9 @@ public class Busqueda extends javax.swing.JFrame {
         jTextFieldPrecioMax.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldPrecioMax.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jTextFieldPrecioMax.setText("Max");
+        jTextFieldPrecioMax.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldPrecioMax.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldPrecioMax.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldPrecioMax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPrecioMaxActionPerformed(evt);
@@ -257,6 +263,9 @@ public class Busqueda extends javax.swing.JFrame {
 
         jTextFieldHabitaciones.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldHabitaciones.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldHabitaciones.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldHabitaciones.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldHabitaciones.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldHabitaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldHabitacionesActionPerformed(evt);
@@ -289,6 +298,9 @@ public class Busqueda extends javax.swing.JFrame {
         jTextFieldMetrosMin.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldMetrosMin.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldMetrosMin.setText("Min");
+        jTextFieldMetrosMin.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldMetrosMin.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldMetrosMin.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldMetrosMin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldMetrosMinActionPerformed(evt);
@@ -299,6 +311,9 @@ public class Busqueda extends javax.swing.JFrame {
         jTextFieldMetrosMax.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldMetrosMax.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldMetrosMax.setText("Max");
+        jTextFieldMetrosMax.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldMetrosMax.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldMetrosMax.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldMetrosMax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldMetrosMaxActionPerformed(evt);
@@ -409,6 +424,9 @@ public class Busqueda extends javax.swing.JFrame {
 
         jTextFieldDuenio.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldDuenio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldDuenio.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldDuenio.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldDuenio.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldDuenio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDuenioActionPerformed(evt);
@@ -482,6 +500,8 @@ public class Busqueda extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         jListResult.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jListResult.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jListResult.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(jListResult);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 560, 400));
@@ -549,6 +569,7 @@ public class Busqueda extends javax.swing.JFrame {
             }
         }
         //Verifico si agregar filtro por metros cuadrados
+        boolean metros = false; //booleano usado para verificar si agregar o no a la pantalla los metros de la publicacion
         if (jCheckBoxFMetros.isSelected()){
             if( !(jTextFieldMetrosMin.getText().isEmpty()) && !(jTextFieldMetrosMax.getText().isEmpty()) ){
                 String m1 = jTextFieldMetrosMin.getText().strip();
@@ -556,6 +577,7 @@ public class Busqueda extends javax.swing.JFrame {
                 if(m1.matches("[+-]?\\d*(\\.\\d+)?") && m2.matches("[+-]?\\d*(\\.\\d+)?")){
                     FiltroRangoTamanio f = new FiltroRangoTamanio(Integer.valueOf(m1), Integer.valueOf(m2));
                     filtros.add(f);
+                    metros = true;
                 }else{
                     errorNumero = true;
                 }
@@ -601,16 +623,20 @@ public class Busqueda extends javax.swing.JFrame {
                 this.publicaciones= sistema.buscar(fAnd);
             }
             //Cargamos el resultado en la lista
-            this.cargarJList();
+            this.cargarJList(metros);
         }
     }//GEN-LAST:event_jButtonFiltrarActionPerformed
 
     //Carga la lista visual basandose en el atributo respectivo (publicaciones)
-    private DefaultListModel cargarJList(){
+    private DefaultListModel cargarJList(boolean metros){
         limpiarJList();
         DefaultListModel modelo = (DefaultListModel) jListResult.getModel();
-        for(Publicacion p: this.publicaciones)
-            modelo.addElement(p.toString());
+        String sMetros = "";
+        for(Publicacion p: this.publicaciones){
+            if(metros)//Verificamos si al usuario le interesa ver los metros cuadrados
+                sMetros=", "+String.valueOf(p.getMetrosCuadrados());
+            modelo.addElement(p.toString()+ sMetros+".");
+        }
         return modelo;
     }
     

@@ -86,6 +86,9 @@ public class NuevoUsuario extends javax.swing.JFrame {
         jTextFieldDNI.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldDNI.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldDNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldDNI.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldDNI.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldDNI.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDNIActionPerformed(evt);
@@ -96,11 +99,17 @@ public class NuevoUsuario extends javax.swing.JFrame {
         jPassword.setBackground(new java.awt.Color(0, 217, 153));
         jPassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPassword.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jPassword.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jPassword.setSelectionColor(new java.awt.Color(255, 255, 255));
         getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 330, -1));
 
         jTextFieldNombre.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldNombre.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldNombre.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldNombre.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldNombre.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNombreActionPerformed(evt);
@@ -116,6 +125,9 @@ public class NuevoUsuario extends javax.swing.JFrame {
         jTextFieldEmail.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldEmail.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldEmail.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldEmail.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldEmail.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldEmailActionPerformed(evt);
@@ -131,6 +143,9 @@ public class NuevoUsuario extends javax.swing.JFrame {
         jTextFieldTelefono.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldTelefono.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldTelefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldTelefono.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldTelefono.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldTelefono.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldTelefonoActionPerformed(evt);

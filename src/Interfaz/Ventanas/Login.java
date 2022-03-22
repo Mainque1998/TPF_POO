@@ -111,6 +111,8 @@ public class Login extends javax.swing.JFrame {
         jTextFieldUsuario.setBackground(new java.awt.Color(0, 211, 153));
         jTextFieldUsuario.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldUsuario.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldUsuario.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldUsuarioActionPerformed(evt);
@@ -121,6 +123,8 @@ public class Login extends javax.swing.JFrame {
         jPassword.setBackground(new java.awt.Color(0, 211, 153));
         jPassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPassword.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jPassword.setSelectionColor(new java.awt.Color(255, 255, 255));
         getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 260, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/fondo.png"))); // NOI18N
@@ -139,15 +143,10 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
 
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
-        PantallaCarga pCarga = new PantallaCarga();//
-        pCarga.setVisible(true);//Inicia la pantalla de carga
-        
         int dni = Integer.valueOf(jTextFieldUsuario.getText().strip());
         String password = String.valueOf(jPassword.getPassword());
         SistemaAplicacion sistema = new SistemaAplicacion();
         Usuario actual = sistema.getUsuario(dni, password);
-        
-        pCarga.setVisible(false);//Termina la pantalla de carga
         
         if(actual!=null){
             this.usuario = actual;

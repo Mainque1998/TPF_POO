@@ -149,6 +149,8 @@ public class MisPublicaciones extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         jListResult.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jListResult.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jListResult.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(jListResult);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 610, 400));

@@ -128,6 +128,9 @@ public class PublicacionDetallada extends javax.swing.JFrame {
         jTextFieldTipo.setEditable(false);
         jTextFieldTipo.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldTipo.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jTextFieldTipo.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldTipo.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldTipo.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldTipoActionPerformed(evt);
@@ -143,6 +146,9 @@ public class PublicacionDetallada extends javax.swing.JFrame {
         jTextFieldZona.setEditable(false);
         jTextFieldZona.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldZona.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jTextFieldZona.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldZona.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldZona.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldZona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldZonaActionPerformed(evt);
@@ -159,6 +165,9 @@ public class PublicacionDetallada extends javax.swing.JFrame {
         jTextFieldCalle.setEditable(false);
         jTextFieldCalle.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldCalle.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jTextFieldCalle.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldCalle.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldCalle.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldCalle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCalleActionPerformed(evt);
@@ -169,6 +178,9 @@ public class PublicacionDetallada extends javax.swing.JFrame {
         jTextFieldAltura.setEditable(false);
         jTextFieldAltura.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldAltura.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jTextFieldAltura.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldAltura.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldAltura.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldAltura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldAlturaActionPerformed(evt);
@@ -184,6 +196,9 @@ public class PublicacionDetallada extends javax.swing.JFrame {
         jTextFieldPrecio.setEditable(false);
         jTextFieldPrecio.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldPrecio.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTextFieldPrecio.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldPrecio.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldPrecio.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPrecioActionPerformed(evt);
@@ -194,6 +209,9 @@ public class PublicacionDetallada extends javax.swing.JFrame {
         jTextFieldPago.setEditable(false);
         jTextFieldPago.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldPago.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jTextFieldPago.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldPago.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldPago.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPagoActionPerformed(evt);
@@ -210,6 +228,9 @@ public class PublicacionDetallada extends javax.swing.JFrame {
         jTextFieldPiso.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldPiso.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldPiso.setText("0");
+        jTextFieldPiso.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldPiso.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldPiso.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldPiso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPisoActionPerformed(evt);
@@ -226,6 +247,9 @@ public class PublicacionDetallada extends javax.swing.JFrame {
         jTextFieldDepto.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldDepto.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldDepto.setText("0");
+        jTextFieldDepto.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldDepto.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldDepto.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldDepto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDeptoActionPerformed(evt);
@@ -241,6 +265,9 @@ public class PublicacionDetallada extends javax.swing.JFrame {
         jTextFieldHabitaciones.setEditable(false);
         jTextFieldHabitaciones.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldHabitaciones.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jTextFieldHabitaciones.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldHabitaciones.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldHabitaciones.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldHabitaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldHabitacionesActionPerformed(evt);
@@ -256,6 +283,9 @@ public class PublicacionDetallada extends javax.swing.JFrame {
         jTextFieldMetrosCuadrados.setEditable(false);
         jTextFieldMetrosCuadrados.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldMetrosCuadrados.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jTextFieldMetrosCuadrados.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldMetrosCuadrados.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldMetrosCuadrados.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldMetrosCuadrados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldMetrosCuadradosActionPerformed(evt);
@@ -271,6 +301,9 @@ public class PublicacionDetallada extends javax.swing.JFrame {
         jTextFieldPatio.setEditable(false);
         jTextFieldPatio.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldPatio.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jTextFieldPatio.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldPatio.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldPatio.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldPatio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPatioActionPerformed(evt);
@@ -286,6 +319,9 @@ public class PublicacionDetallada extends javax.swing.JFrame {
         jTextFieldAmueblado.setEditable(false);
         jTextFieldAmueblado.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldAmueblado.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jTextFieldAmueblado.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldAmueblado.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldAmueblado.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldAmueblado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldAmuebladoActionPerformed(evt);
@@ -304,24 +340,33 @@ public class PublicacionDetallada extends javax.swing.JFrame {
         jTextAreaDescripcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextAreaDescripcion.setLineWrap(true);
         jTextAreaDescripcion.setRows(5);
+        jTextAreaDescripcion.setText("\n");
+        jTextAreaDescripcion.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextAreaDescripcion.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextAreaDescripcion.setSelectionColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(jTextAreaDescripcion);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 410, 160));
 
         jLabel12.setFont(new java.awt.Font("Arial Black", 1, 44)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 211, 153));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Contacto");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, -1, 60));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(457, 210, 280, 60));
 
         jLabel13.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 211, 153));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Nombre");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, -1, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(455, 270, 290, -1));
 
         jTextFieldCNombre.setEditable(false);
         jTextFieldCNombre.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldCNombre.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldCNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldCNombre.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldCNombre.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldCNombre.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldCNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCNombreActionPerformed(evt);
@@ -331,13 +376,17 @@ public class PublicacionDetallada extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 211, 153));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("Email");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, -1, -1));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(461, 350, 280, -1));
 
         jTextFieldEmail.setEditable(false);
         jTextFieldEmail.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldEmail.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldEmail.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldEmail.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldEmail.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldEmailActionPerformed(evt);
@@ -347,13 +396,17 @@ public class PublicacionDetallada extends javax.swing.JFrame {
 
         jLabel15.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 211, 153));
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText(" Teléfono");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 110, -1));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 280, -1));
 
         jTextFieldTelefono.setEditable(false);
         jTextFieldTelefono.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldTelefono.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTextFieldTelefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldTelefono.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldTelefono.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldTelefono.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldTelefonoActionPerformed(evt);
