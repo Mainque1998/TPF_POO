@@ -611,16 +611,20 @@ public class Busqueda extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Por favor, llenar los campos de las opciones seleccionadas para filtrar.");
         
         //Creamos el filtro final y filtramos las publicaciones
-        if(!errorNumero && !errorVacio && !filtros.isEmpty()){
+        if(!errorNumero && !errorVacio){
             SistemaAplicacion sistema = new SistemaAplicacion();
-            if(filtros.size()==1){
-                this.publicaciones= sistema.buscar(filtros.get(0));
-            }else{//Tiene más de un filtro
-                FiltroAnd fAnd = new FiltroAnd(filtros.get(0), filtros.get(1));
-                for(int i=2; i<filtros.size(); i++){
-                    fAnd = new FiltroAnd(fAnd, filtros.get(i));
+            if(!filtros.isEmpty()){
+                if(filtros.size()==1){
+                    this.publicaciones= sistema.buscar(filtros.get(0));
+                }else{//Tiene más de un filtro
+                    FiltroAnd fAnd = new FiltroAnd(filtros.get(0), filtros.get(1));
+                    for(int i=2; i<filtros.size(); i++){
+                        fAnd = new FiltroAnd(fAnd, filtros.get(i));
+                    }
+                    this.publicaciones= sistema.buscar(fAnd);
                 }
-                this.publicaciones= sistema.buscar(fAnd);
+            }else{//Si no se filtró entonces le imprimimos todas las publicaciones
+                this.publicaciones = new ArrayList<Publicacion>(sistema.obtenerPublicaciones());
             }
             //Cargamos el resultado en la lista
             this.cargarJList(metros);
