@@ -77,14 +77,6 @@ public class SistemaAplicacion {
         return false; //la publicación no existe (esto no debería ocurrir en un contexto sin errores)
     }
     
-    //Metodo para obtener la lista de publicaciones de la BD
-    public List<Usuario> obtenerUsuarios(){
-        SessionFactory sf = HibernateUtil.getSessionFactory();
-        Session ses = sf.openSession();
-        List<Usuario> lista = ses.createQuery("from Usuario").list();
-        return lista;
-    }
-    
     //Metodo para devolver un usuario o null si no existe o la contraseña es incorrecta (usado por Login)
     public Usuario getUsuario(int dni, String password){
         SessionFactory sf = HibernateUtil.getSessionFactory();
@@ -101,6 +93,14 @@ public class SistemaAplicacion {
                 return u;
         }
         return null;//Si no existia un usuario con el dni entonces es null
+    }
+        
+    //Metodo para obtener la lista de usuarios de la BD
+    private List<Usuario> obtenerUsuarios(){
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session ses = sf.openSession();
+        List<Usuario> lista = ses.createQuery("from Usuario").list();
+        return lista;
     }
     
     //Metodo para agregar un usuario a la BD (usado por NuevoUsuario)
