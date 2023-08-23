@@ -8,12 +8,11 @@ import java.awt.Image;
 import java.awt.Toolkit;
 
 /**
- *
+ * Clase para la interfaz de menu principal de la aplicación
  * @author Mainque
  */
 public class Menu extends javax.swing.JFrame {
     
-    // Constructor
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);

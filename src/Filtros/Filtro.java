@@ -1,6 +1,6 @@
 package Filtros;
 
-import Sistema_Base.Publicacion;
+import cl.pojos.Publicacion;
 
 /**
  * Clase abstracta para realizar el filtrado a traves del meotodo cumple

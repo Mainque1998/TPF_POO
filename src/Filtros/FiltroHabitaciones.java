@@ -1,6 +1,6 @@
 package Filtros;
 
-import Sistema_Base.Publicacion;
+import cl.pojos.Publicacion;
 
 /**
  * Clase que extiende de Filtro para filtrar por una cantidad de habitaciones determinada

@@ -1,25 +1,21 @@
 package Filtros;
 
-import Sistema_Base.Publicacion;
+import cl.pojos.Publicacion;
 
 /**
  * Clase que extiende de Filtro para filtrar por un dueño en especifico
  * @author Mainque
  */
 public class FiltroDuenio implements Filtro {
-    private String nombreDueño;
-    private int dniDueño;
+    private String duenio;
     
     //Constructores
-    public FiltroDuenio(String nombre) { //este filtro es usado por el buscador
-        this.nombreDueño = nombre;
-    }
-    public FiltroDuenio(int dni) { //este filtro es usado por la lista de "Mis publicaciones"
-        this.dniDueño = dni;
+    public FiltroDuenio(String nombre) {
+        this.duenio = nombre;
     }
     
     @Override
-    public boolean cumple(Publicacion p) {//TODO agregar la comparacion del nombre asociado al dni de la pub con el string dueño
-        return dniDueño== p.getDueño();
+    public boolean cumple(Publicacion p) {
+        return p.getUsuario().getNombre().equals(this.duenio);
     }
 }

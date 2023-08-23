@@ -4,18 +4,19 @@
  */
 package Interfaz.Ventanas;
 
+import cl.pojos.Usuario;
+import cl.sistema.SistemaAplicacion;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Clase para la interfaz de log in de la aplicación
  * @author Mainque
  */
 public class Login extends javax.swing.JFrame {
-    private static int dniUsuario = 0;
+    private static Usuario usuario = null;//Usado por las otras interfaces para conocer al usuario actual de la aplicación
     
-    // Constructor
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -26,8 +27,8 @@ public class Login extends javax.swing.JFrame {
         return retValue;
     }
     
-    public static int getDniUsuario() {
-        return dniUsuario;
+    public static Usuario getUsuarioActual() {
+        return usuario;
     }
     
     /**
@@ -56,7 +57,6 @@ public class Login extends javax.swing.JFrame {
 
         jButtonExit.setBackground(new java.awt.Color(255, 0, 0));
         jButtonExit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButtonExit.setForeground(new java.awt.Color(0, 0, 0));
         jButtonExit.setText("Salir");
         jButtonExit.setBorder(null);
         jButtonExit.setBorderPainted(false);
@@ -73,7 +73,6 @@ public class Login extends javax.swing.JFrame {
 
         jButtonCrearUsuario.setBackground(new java.awt.Color(0, 211, 153));
         jButtonCrearUsuario.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jButtonCrearUsuario.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCrearUsuario.setText("Crear usuario");
         jButtonCrearUsuario.setBorder(null);
         jButtonCrearUsuario.setBorderPainted(false);
@@ -87,7 +86,6 @@ public class Login extends javax.swing.JFrame {
 
         jButtonIngresar.setBackground(new java.awt.Color(0, 211, 153));
         jButtonIngresar.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jButtonIngresar.setForeground(new java.awt.Color(0, 0, 0));
         jButtonIngresar.setText("Ingresar");
         jButtonIngresar.setBorder(null);
         jButtonIngresar.setBorderPainted(false);
@@ -112,8 +110,9 @@ public class Login extends javax.swing.JFrame {
 
         jTextFieldUsuario.setBackground(new java.awt.Color(0, 211, 153));
         jTextFieldUsuario.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFieldUsuario.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldUsuario.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldUsuario.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldUsuarioActionPerformed(evt);
@@ -123,8 +122,9 @@ public class Login extends javax.swing.JFrame {
 
         jPassword.setBackground(new java.awt.Color(0, 211, 153));
         jPassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jPassword.setForeground(new java.awt.Color(0, 0, 0));
         jPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPassword.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jPassword.setSelectionColor(new java.awt.Color(255, 255, 255));
         getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 260, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/fondo.png"))); // NOI18N
@@ -144,14 +144,16 @@ public class Login extends javax.swing.JFrame {
 
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
         int dni = Integer.valueOf(jTextFieldUsuario.getText().strip());
-        String contraseña = jPassword.getPassword().toString();
+        String password = String.valueOf(jPassword.getPassword());
+        SistemaAplicacion sistema = new SistemaAplicacion();
+        Usuario actual = sistema.getUsuario(dni, password);
         
-        if(true){//Consultar a la BD si existe el usuario con el DNI y la contraseña
-            this.dniUsuario = dni;
+        if(actual!=null){
+            this.usuario = actual;
             Menu menu = new Menu();
             menu.setVisible(true);
             this.setVisible(false);
-        }else{
+        }else{//Puede ser null si el usuario no existe o sí existe pero la contraseña es otra
             JOptionPane.showMessageDialog(null, "El DNI y/o la contraseña son incorrectos");
         }
     }//GEN-LAST:event_jButtonIngresarActionPerformed

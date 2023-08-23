@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 mar. 2022 19:19:47 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="sql10475586" name="cl.pojos.Publicacion" optimistic-lock="version" table="PUBLICACION">
+    <id name="id" type="java.lang.Integer">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="cl.pojos.Usuario" fetch="select" name="usuario">
+      <column name="duenio" not-null="true"/>
+    </many-to-one>
+    <property name="tipo" type="string">
+      <column length="100" name="tipo" not-null="true"/>
+    </property>
+    <property name="zona" type="string">
+      <column length="100" name="zona" not-null="true"/>
+    </property>
+    <property name="calle" type="string">
+      <column length="100" name="calle" not-null="true"/>
+    </property>
+    <property name="altura" type="int">
+      <column name="altura" not-null="true"/>
+    </property>
+    <property name="piso" type="java.lang.Integer">
+      <column name="piso"/>
+    </property>
+    <property name="depto" type="java.lang.Integer">
+      <column name="depto"/>
+    </property>
+    <property name="pago" type="string">
+      <column length="100" name="pago" not-null="true"/>
+    </property>
+    <property name="precio" type="int">
+      <column name="precio" not-null="true"/>
+    </property>
+    <property name="cantHabitaciones" type="int">
+      <column name="cantHabitaciones" not-null="true"/>
+    </property>
+    <property name="metrosCuadrados" type="int">
+      <column name="metrosCuadrados" not-null="true"/>
+    </property>
+    <property name="esAmueblado" type="boolean">
+      <column name="esAmueblado" not-null="true"/>
+    </property>
+    <property name="tienePatio" type="boolean">
+      <column name="tienePatio" not-null="true"/>
+    </property>
+    <property name="descripcion" type="string">
+      <column length="65535" name="descripcion" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

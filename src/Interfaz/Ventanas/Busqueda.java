@@ -4,8 +4,9 @@
  */
 package Interfaz.Ventanas;
 
+import cl.pojos.Publicacion;
+import cl.sistema.SistemaAplicacion;
 import Filtros.*;
-import Sistema_Base.*;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -14,16 +15,20 @@ import javax.swing.JOptionPane;
 
 
 /**
- *
+ * Clase para la interfaz de filtrado de la aplicación
  * @author Mainque
  */
 public class Busqueda extends javax.swing.JFrame {
+    private ArrayList<Publicacion> publicaciones;//Lista usada para mapear los strings de la lista con las publicaciones respectivas
     
-    //constructor
     public Busqueda() {
         initComponents();
         this.setLocationRelativeTo(null);
-        limpiarJList();
+        
+        //Inicializo la vista con todas las publicaciones
+        SistemaAplicacion sistema = new SistemaAplicacion();
+        this.publicaciones = new ArrayList<Publicacion>(sistema.obtenerPublicaciones());
+        this.cargarJList(false);
     }
 
     public Image getIconImage() {
@@ -71,8 +76,9 @@ public class Busqueda extends javax.swing.JFrame {
         jTextFieldDuenio = new javax.swing.JTextField();
         jButtonFiltrar = new javax.swing.JButton();
         jButtonInfo = new javax.swing.JButton();
-        jButtonAtras = new javax.swing.JButton();
+        jButtonMenu = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jButtonVerMas = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jListResult = new javax.swing.JList<>();
         jLabelFondo = new javax.swing.JLabel();
@@ -93,7 +99,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jButtonExitActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 60, 20));
+        getContentPane().add(jButtonExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 10, 60, 20));
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 211, 153));
@@ -102,7 +108,7 @@ public class Busqueda extends javax.swing.JFrame {
 
         jComboBoxTipo.setBackground(new java.awt.Color(0, 217, 153));
         jComboBoxTipo.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alquiler", "Venta", "Residencia" }));
+        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alquiler", "Venta", "Pensión" }));
         jComboBoxTipo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jComboBoxTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +132,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFTipoActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 30));
+        getContentPane().add(jCheckBoxFTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 10, 10));
 
         jLabel8.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 211, 153));
@@ -148,11 +154,14 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFPrecioActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 40, 20));
+        getContentPane().add(jCheckBoxFPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 10, 10));
 
         jTextFieldPrecioMin.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldPrecioMin.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jTextFieldPrecioMin.setText("Min");
+        jTextFieldPrecioMin.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldPrecioMin.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldPrecioMin.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldPrecioMin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPrecioMinActionPerformed(evt);
@@ -163,6 +172,9 @@ public class Busqueda extends javax.swing.JFrame {
         jTextFieldPrecioMax.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldPrecioMax.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jTextFieldPrecioMax.setText("Max");
+        jTextFieldPrecioMax.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldPrecioMax.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldPrecioMax.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldPrecioMax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPrecioMaxActionPerformed(evt);
@@ -185,7 +197,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFPagoActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 40, 30));
+        getContentPane().add(jCheckBoxFPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 10, 10));
 
         jComboBoxPago.setBackground(new java.awt.Color(0, 217, 153));
         jComboBoxPago.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
@@ -219,18 +231,18 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFZonaActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFZona, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 40, 30));
+        getContentPane().add(jCheckBoxFZona, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 10, 10));
 
         jComboBoxZona.setBackground(new java.awt.Color(0, 217, 153));
         jComboBoxZona.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBoxZona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Centro", "Semi-Centro", "Villa Italia", "Movediza" }));
+        jComboBoxZona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Centro", "Semi-Centro", "Barrio 25 de Mayo", "Barrio 17 de Agosto", "Barrio Arco Iris 1° etapa", "Barrio Arco Iris 2° etapa", "Barrio de las Ranas", "Barrio Eduardo Olivero", "Barrio El Calvario", "Barrio El Centinela", "Barrio Falucho 1", "Barrio Falucho 2", "Barrio Fatica", "Barrio Fonavi", "Barrio de Graduados", "Barrio General Belgrano", "Barrio Jardín", "Barrio La Movediza", "Barrio Maggiori", "Barrio Manantial", "Barrio Metalúrgico", "Barrio Militar", "Barrio Mirage", "Barrio Palermo", "Barrio Parque La Movediza", "Barrio Pro-Casa", "Barrio Rodríguez-Selvetti", "Barrio San Juan", "Barrio Sierra Sud", "Barrio Terminal", "Barrio Uncas", "Barrio Universitario", "Barrio Villa del Parque", "El Cerrito", "El Tropezón", "El Bolsón", "La Elena", "La Florida", "Las Tunitas", "Villa del Lago", "Villa Don Bosco", "Villa Galicia", "Villa Italia", "Villa Laza", "Villa Gaucho", "Villa Aguirre", "Cerro Leones", "Barrio A.T.E.P.A.M. I y II" }));
         jComboBoxZona.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jComboBoxZona, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 180, -1));
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 211, 153));
         jLabel10.setText("Habitaciones");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, 20));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, 30));
 
         jCheckBoxFHabitaciones.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxFHabitaciones.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -247,10 +259,13 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFHabitacionesActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFHabitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 40, 20));
+        getContentPane().add(jCheckBoxFHabitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 10, 10));
 
         jTextFieldHabitaciones.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldHabitaciones.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldHabitaciones.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldHabitaciones.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldHabitaciones.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldHabitaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldHabitacionesActionPerformed(evt);
@@ -278,11 +293,14 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFMetrosActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFMetros, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 40, 30));
+        getContentPane().add(jCheckBoxFMetros, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 10, 10));
 
         jTextFieldMetrosMin.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldMetrosMin.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldMetrosMin.setText("Min");
+        jTextFieldMetrosMin.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldMetrosMin.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldMetrosMin.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldMetrosMin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldMetrosMinActionPerformed(evt);
@@ -293,6 +311,9 @@ public class Busqueda extends javax.swing.JFrame {
         jTextFieldMetrosMax.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldMetrosMax.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldMetrosMax.setText("Max");
+        jTextFieldMetrosMax.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldMetrosMax.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldMetrosMax.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldMetrosMax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldMetrosMaxActionPerformed(evt);
@@ -302,8 +323,8 @@ public class Busqueda extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 211, 153));
-        jLabel9.setText("Tiene patio?");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 336, -1, 30));
+        jLabel9.setText("¿Tiene patio?");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 326, -1, 40));
 
         jCheckBoxFPatio.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxFPatio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -320,7 +341,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFPatioActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFPatio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 40, 20));
+        getContentPane().add(jCheckBoxFPatio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 10, 10));
 
         jCheckBoxPatio.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxPatio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -337,12 +358,12 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxPatioActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxPatio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 30, 20));
+        getContentPane().add(jCheckBoxPatio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 10, 10));
 
         jLabel5.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 211, 153));
-        jLabel5.setText("Es amueblado?");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, 20));
+        jLabel5.setText("¿Es amueblado?");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, 30));
 
         jCheckBoxFAmueblado.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxFAmueblado.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -359,7 +380,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFAmuebladoActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFAmueblado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 40, 20));
+        getContentPane().add(jCheckBoxFAmueblado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 10, 10));
 
         jCheckBoxAmueblado.setBackground(new java.awt.Color(0, 211, 153));
         jCheckBoxAmueblado.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -376,7 +397,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxAmuebladoActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxAmueblado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 30, 20));
+        getContentPane().add(jCheckBoxAmueblado, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 10, 10));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 211, 153));
@@ -399,10 +420,13 @@ public class Busqueda extends javax.swing.JFrame {
                 jCheckBoxFDuenioActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBoxFDuenio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 40, 30));
+        getContentPane().add(jCheckBoxFDuenio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 10, 10));
 
         jTextFieldDuenio.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldDuenio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldDuenio.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldDuenio.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldDuenio.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldDuenio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDuenioActionPerformed(evt);
@@ -411,7 +435,7 @@ public class Busqueda extends javax.swing.JFrame {
         getContentPane().add(jTextFieldDuenio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 180, -1));
 
         jButtonFiltrar.setBackground(new java.awt.Color(0, 217, 153));
-        jButtonFiltrar.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jButtonFiltrar.setFont(new java.awt.Font("Arial", 1, 28)); // NOI18N
         jButtonFiltrar.setText("Filtrar");
         jButtonFiltrar.setBorder(null);
         jButtonFiltrar.setBorderPainted(false);
@@ -421,7 +445,7 @@ public class Busqueda extends javax.swing.JFrame {
                 jButtonFiltrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 90, 30));
+        getContentPane().add(jButtonFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, 110, 30));
 
         jButtonInfo.setBackground(new java.awt.Color(0, 217, 153));
         jButtonInfo.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
@@ -434,26 +458,39 @@ public class Busqueda extends javax.swing.JFrame {
                 jButtonInfoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 466, 30, -1));
+        getContentPane().add(jButtonInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 460, 30, 30));
 
-        jButtonAtras.setBackground(new java.awt.Color(0, 217, 153));
-        jButtonAtras.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButtonAtras.setText("Atras");
-        jButtonAtras.setBorder(null);
-        jButtonAtras.setBorderPainted(false);
-        jButtonAtras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
+        jButtonMenu.setBackground(new java.awt.Color(0, 217, 153));
+        jButtonMenu.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButtonMenu.setText("Menú");
+        jButtonMenu.setBorder(null);
+        jButtonMenu.setBorderPainted(false);
+        jButtonMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAtrasActionPerformed(evt);
+                jButtonMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 40, 20));
+        getContentPane().add(jButtonMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 50, 20));
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 211, 153));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Resultados");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 250, 30));
+
+        jButtonVerMas.setBackground(new java.awt.Color(0, 217, 153));
+        jButtonVerMas.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jButtonVerMas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/icono v2.png"))); // NOI18N
+        jButtonVerMas.setBorder(null);
+        jButtonVerMas.setBorderPainted(false);
+        jButtonVerMas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonVerMas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVerMasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonVerMas, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 40, 30));
 
         jListResult.setBackground(new java.awt.Color(0, 217, 153));
         jListResult.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -463,14 +500,16 @@ public class Busqueda extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         jListResult.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jListResult.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jListResult.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(jListResult);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 720, 450));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 560, 400));
 
         jLabelFondo.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Imagenes/fondo.png"))); // NOI18N
         jLabelFondo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 217, 153)));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 500));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -480,7 +519,6 @@ public class Busqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jButtonFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFiltrarActionPerformed
-        limpiarJList();     
         //Primero creamos los filtros para cada opcion seleccionada y la agregamos a una lista de filtros
         ArrayList<Filtro> filtros = new ArrayList<Filtro>();
         boolean errorNumero = false; //Boleano para detectar que un campo numerico tiene otros caracteres
@@ -531,6 +569,7 @@ public class Busqueda extends javax.swing.JFrame {
             }
         }
         //Verifico si agregar filtro por metros cuadrados
+        boolean metros = false; //booleano usado para verificar si agregar o no a la pantalla los metros de la publicacion
         if (jCheckBoxFMetros.isSelected()){
             if( !(jTextFieldMetrosMin.getText().isEmpty()) && !(jTextFieldMetrosMax.getText().isEmpty()) ){
                 String m1 = jTextFieldMetrosMin.getText().strip();
@@ -538,6 +577,7 @@ public class Busqueda extends javax.swing.JFrame {
                 if(m1.matches("[+-]?\\d*(\\.\\d+)?") && m2.matches("[+-]?\\d*(\\.\\d+)?")){
                     FiltroRangoTamanio f = new FiltroRangoTamanio(Integer.valueOf(m1), Integer.valueOf(m2));
                     filtros.add(f);
+                    metros = true;
                 }else{
                     errorNumero = true;
                 }
@@ -571,38 +611,51 @@ public class Busqueda extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Por favor, llenar los campos de las opciones seleccionadas para filtrar.");
         
         //Creamos el filtro final y filtramos las publicaciones
-        if(!errorNumero && !errorVacio && !filtros.isEmpty()){
-            ArrayList<Publicacion> resultado = new ArrayList<Publicacion>();
-            Publicaciones listaP = new Publicaciones();
-            if(filtros.size()==1){
-                resultado= listaP.buscar(filtros.get(0));
-            }else{//Tiene más de un filtro
-                FiltroAnd fAnd = new FiltroAnd(filtros.get(0), filtros.get(1));
-                for(int i=2; i<filtros.size(); i++){
-                    fAnd = new FiltroAnd(fAnd, filtros.get(i));
+        if(!errorNumero && !errorVacio){
+            SistemaAplicacion sistema = new SistemaAplicacion();
+            if(!filtros.isEmpty()){
+                if(filtros.size()==1){
+                    this.publicaciones= sistema.buscar(filtros.get(0));
+                }else{//Tiene más de un filtro
+                    FiltroAnd fAnd = new FiltroAnd(filtros.get(0), filtros.get(1));
+                    for(int i=2; i<filtros.size(); i++){
+                        fAnd = new FiltroAnd(fAnd, filtros.get(i));
+                    }
+                    this.publicaciones= sistema.buscar(fAnd);
                 }
-                resultado= listaP.buscar(fAnd);
+            }else{//Si no se filtró entonces le imprimimos todas las publicaciones
+                this.publicaciones = new ArrayList<Publicacion>(sistema.obtenerPublicaciones());
             }
             //Cargamos el resultado en la lista
-            DefaultListModel modelo = (DefaultListModel) jListResult.getModel();
-            for(Publicacion p: resultado){
-                System.out.println(p.toString());//PRUEBA
-                modelo.addElement(p.toString());
-            }
+            this.cargarJList(metros);
         }
     }//GEN-LAST:event_jButtonFiltrarActionPerformed
 
+    //Carga la lista visual basandose en el atributo respectivo (publicaciones)
+    private DefaultListModel cargarJList(boolean metros){
+        limpiarJList();
+        DefaultListModel modelo = (DefaultListModel) jListResult.getModel();
+        String sMetros = "";
+        for(Publicacion p: this.publicaciones){
+            if(metros)//Verificamos si al usuario le interesa ver los metros cuadrados
+                sMetros=", "+String.valueOf(p.getMetrosCuadrados());
+            modelo.addElement(p.toString()+ sMetros+".");
+        }
+        return modelo;
+    }
+    
+    //Limpia la lista visual
     private DefaultListModel limpiarJList(){
         DefaultListModel modelo = new DefaultListModel();
         jListResult.setModel(modelo);
         return modelo;
     }
     
-    private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
+    private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
         Menu anterior = new Menu();
         anterior.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButtonAtrasActionPerformed
+    }//GEN-LAST:event_jButtonMenuActionPerformed
 
     private void jTextFieldPrecioMaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrecioMaxActionPerformed
         // TODO add your handling code here:
@@ -681,8 +734,22 @@ public class Busqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxFDuenioActionPerformed
 
     private void jButtonInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInfoActionPerformed
-        JOptionPane.showMessageDialog(null, "Tilde el cuadrado de aquellos campos por los que desea filtrar, luego complete el/los campo/s.");
+        JOptionPane.showMessageDialog(null, "Tilde el cuadrado de aquellos campos por los que desea filtrar,\nluego complete el/los campo/s."
+                                      +"\n"+"Para ver más sobre una publicación use el botón de la lupa.");
     }//GEN-LAST:event_jButtonInfoActionPerformed
+
+    private void jButtonVerMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerMasActionPerformed
+        int seleccionado = jListResult.getSelectedIndex();
+        if(seleccionado!=-1){
+            Publicacion p = this.publicaciones.get(seleccionado);//Obtengo la publicación seleccionada
+            PublicacionDetallada pd = new PublicacionDetallada();
+            pd.setPublicacion(p);
+            pd.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe seleccionar la publicación a mostrar."
+                                          +"\n"+"    (Use el botón ? para saber más)");
+        }
+    }//GEN-LAST:event_jButtonVerMasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -751,10 +818,11 @@ public class Busqueda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAtras;
     private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonFiltrar;
     private javax.swing.JButton jButtonInfo;
+    private javax.swing.JButton jButtonMenu;
+    private javax.swing.JButton jButtonVerMas;
     private javax.swing.JCheckBox jCheckBoxAmueblado;
     private javax.swing.JCheckBox jCheckBoxFAmueblado;
     private javax.swing.JCheckBox jCheckBoxFDuenio;

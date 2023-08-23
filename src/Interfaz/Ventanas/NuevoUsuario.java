@@ -4,13 +4,15 @@
  */
 package Interfaz.Ventanas;
 
+import cl.sistema.SistemaAplicacion;
+import cl.pojos.Usuario;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 
 /**
- *
+ * Clase para la interfaz de creación de usuario
  * @author Mainque
  */
 public class NuevoUsuario extends javax.swing.JFrame {
@@ -59,7 +61,6 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         jButtonExit.setBackground(new java.awt.Color(255, 0, 0));
         jButtonExit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButtonExit.setForeground(new java.awt.Color(0, 0, 0));
         jButtonExit.setText("Salir");
         jButtonExit.setBorder(null);
         jButtonExit.setBorderPainted(false);
@@ -84,8 +85,10 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         jTextFieldDNI.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldDNI.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFieldDNI.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldDNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldDNI.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldDNI.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldDNI.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDNIActionPerformed(evt);
@@ -95,14 +98,18 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         jPassword.setBackground(new java.awt.Color(0, 217, 153));
         jPassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jPassword.setForeground(new java.awt.Color(0, 0, 0));
         jPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPassword.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jPassword.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jPassword.setSelectionColor(new java.awt.Color(255, 255, 255));
         getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 330, -1));
 
         jTextFieldNombre.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldNombre.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFieldNombre.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldNombre.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldNombre.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldNombre.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNombreActionPerformed(evt);
@@ -117,8 +124,10 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         jTextFieldEmail.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldEmail.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFieldEmail.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldEmail.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldEmail.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldEmail.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldEmailActionPerformed(evt);
@@ -133,8 +142,10 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         jTextFieldTelefono.setBackground(new java.awt.Color(0, 217, 153));
         jTextFieldTelefono.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTextFieldTelefono.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldTelefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldTelefono.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldTelefono.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldTelefono.setSelectionColor(new java.awt.Color(255, 255, 255));
         jTextFieldTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldTelefonoActionPerformed(evt);
@@ -154,15 +165,13 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         jComboBoxLocalidad.setBackground(new java.awt.Color(0, 217, 153));
         jComboBoxLocalidad.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jComboBoxLocalidad.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBoxLocalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tandil", "Olavarría", "Balcarce", "Mar Del Plata" }));
+        jComboBoxLocalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tandil", "Olavarría", "Mar Del Plata", "Tres Arroyos", "Capital federal", "Otra" }));
         jComboBoxLocalidad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jComboBoxLocalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 270, -1));
         jComboBoxLocalidad.getAccessibleContext().setAccessibleName("");
 
         jButtonCrearUsuario.setBackground(new java.awt.Color(0, 217, 153));
         jButtonCrearUsuario.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jButtonCrearUsuario.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCrearUsuario.setText("Crear usuario");
         jButtonCrearUsuario.setBorder(null);
         jButtonCrearUsuario.setBorderPainted(false);
@@ -176,8 +185,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
         jButtonAtras.setBackground(new java.awt.Color(0, 217, 153));
         jButtonAtras.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButtonAtras.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonAtras.setText("Atras");
+        jButtonAtras.setText("Atrás");
         jButtonAtras.setBorder(null);
         jButtonAtras.setBorderPainted(false);
         jButtonAtras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -219,8 +227,14 @@ public class NuevoUsuario extends javax.swing.JFrame {
                     String password = jPassword.getText();
                     if(password.length()>5){
                         String nombre = jTextFieldNombre.getText().strip();
-                        //TODO Verificar que no exista usuario con el DNI
-                        //Si no existe entonces se guarda en la BD y vuelve al menu inicial
+                        //Se procede a intengar agregar el usuario
+                        SistemaAplicacion sistema = new SistemaAplicacion();
+                        boolean seAgrego = sistema.agregarUsuario(new Usuario(Integer.valueOf(dni), password, nombre, email, telefono, jComboBoxLocalidad.getSelectedItem().toString()));//falta telefono
+                        if(seAgrego){
+                            JOptionPane.showMessageDialog(null, "Se creó la cuenta correctamente.");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Ya existe un usuario con este DNI.");
+                        }
                     }else{
                         JOptionPane.showMessageDialog(null, "La contraseña debe tener al menos 6 caracteres.");
                     }
@@ -230,7 +244,6 @@ public class NuevoUsuario extends javax.swing.JFrame {
             }else{
                 JOptionPane.showMessageDialog(null, "El DNI y el télefono solo pueden llevar números.");
             }
-            
         }
     }//GEN-LAST:event_jButtonCrearUsuarioActionPerformed
 

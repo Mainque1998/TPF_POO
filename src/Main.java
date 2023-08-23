@@ -1,4 +1,7 @@
-package Sistema_Base;
+
+
+import Interfaz.Ventanas.Login;
+
 /**
  *
  * @author Mainque
@@ -9,7 +12,8 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Login anterior = new Login();
+        anterior.setVisible(true);
     }
     
 }
